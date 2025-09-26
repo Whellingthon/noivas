@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #e6b8c3;
+    --secondary: #7a5c58;
+    --accent: #d4a59a;
+    --light: #f8f1f0;
+    --dark: #3a2e2c;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, rgba(230, 184, 195, 0.9), rgba(212, 165, 154, 0.9));
+}
+
+.gift-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.countdown-number {
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.countdown-label {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.carousel-item {
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+}
