@@ -1,8 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- CONFIGURAÇÕES GLOBAIS ---
-    const weddingDate = new Date("Oct 18, 2026 16:00:00").getTime();
-    const pixKeyValue = "maria.joao@email.com"; // <-- MUDE AQUI SUA CHAVE PIX
+    const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
+    const pixKeyValue = "livia.taylor@email.com"; // <-- MUDE AQUI SUA CHAVE PIX
+    const siteMusic = document.getElementById('siteMusic');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // --- LÓGICA DO ÁUDIO (AUTOPLAY AO INTERAGIR) ---
+    function setupAutoplayMusic() {
+        if (!siteMusic) return;
+
+        siteMusic.volume = 0.6;
+
+        const tryPlayMusic = () => {
+            const playPromise = siteMusic.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Música começou a tocar, removemos os listeners de interação
+                    document.removeEventListener('click', tryPlayMusic);
+                    document.removeEventListener('touchstart', tryPlayMusic);
+                    document.removeEventListener('scroll', tryPlayMusic);
+                }).catch(() => {
+                    // Navegador bloqueou, aguarda qualquer interação do usuário
+                    document.addEventListener('click', tryPlayMusic, { once: true });
+                    document.addEventListener('touchstart', tryPlayMusic, { once: true });
+                    document.addEventListener('scroll', tryPlayMusic, { once: true });
+                });
+            }
+        };
+
+        tryPlayMusic();
+    }
+
+    setupAutoplayMusic();
 
     // --- LÓGICA DO COUNTDOWN ---
     const countdownInterval = setInterval(() => {
@@ -47,14 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroCarouselItems.length > 1) {
         heroCarouselItems[0].classList.add('active');
-        setInterval(nextHeroSlide, 5000); // Troca a cada 5 segundos
+        setInterval(nextHeroSlide, 5000);
     } else if (heroCarouselItems.length === 1) {
         heroCarouselItems[0].classList.add('active');
     }
 
     // --- LÓGICA DO CARROSSEL DE FOTOS PRINCIPAL ---
     const mainCarouselSlide = document.querySelector('.main-carousel-slide');
-    const mainCarouselItems = document.querySelectorAll('#fotos .carousel-item');
+    const mainCarouselItems = document.querySelectorAll('.carousel-item');
     const mainPrevBtn = document.querySelector('.main-carousel-btn.prev');
     const mainNextBtn = document.querySelector('.main-carousel-btn.next');
     let mainCurrentIndex = 0;
@@ -125,6 +156,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- LÓGICA DO BOTÃO VOLTAR AO TOPO ---
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            // Se rolar mais de 400px, mostra o botão
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // --- INICIALIZAÇÃO DOS PLUGINS ---
     feather.replace();
     
@@ -137,34 +189,35 @@ document.addEventListener('DOMContentLoaded', () => {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        color: 0xe6b8c3,
-        color2: 0xd4a59a,
+        color: 0x92A8D1, // Azul Serenity que você escolheu
+        color2: 0xADC5ED,
         backgroundColor: 0xf8f1f0,
         size: 0.7
     });
-    // --- LÓGICA DO BOTÃO VOLTAR AO TOPO ---
-    const backToTopBtn = document.getElementById('backToTopBtn');
 
-    // Mostra ou esconde o botão baseado na posição da rolagem
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopBtn.classList.remove('hidden');
-        } else {
-            backToTopBtn.classList.add('hidden');
+});
+
+// --- LÓGICA DE REVEAL (ANIMAÇÃO AO DESCER) ---
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 150; // Distância para ativar a animação
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
         }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+
+// --- MOSTRAR PLAYER QUANDO A MÚSICA COMEÇAR ---
+const playerInfo = document.getElementById('music-player-info');
+if (siteMusic && playerInfo) {
+    siteMusic.onplay = () => {
+        playerInfo.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+        playerInfo.classList.add('opacity-100', 'visible', 'translate-y-0');
     };
-
-    // Faz a página rolar suavemente para o topo ao clicar
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // --- INICIALIZAÇÃO DOS PLUGINS ---
-    feather.replace(); // Esta linha já deve existir, ela também vai renderizar o novo ícone
-    
-    // ... (código do VANTA.GLOBE continua aqui) ...
-
-}); // Esta é a última linha do seu arquivo
+}

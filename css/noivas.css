@@ -1,13 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+.bad-script-regular {
+  font-family: "Bad Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
-    --primary: #e6b8c3;
+    --primary: #b0cddf;
     --secondary: #7a5c58;
-    --accent: #d4a59a;
+    --accent: #b0cddf;
     --light: #f8f1f0;
     --dark: #3a2e2c;
 }
-
+/* "Enganando" o navegador para criar um negrito artificial */
+.casar-bold {
+    font-family: "Bad Script", cursive;
+    /* Criamos uma sombra curtinha da mesma cor do texto para ele parecer mais grosso */
+    text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
+    /* Opcional: Aumentar levemente o tamanho para dar mais peso */
+    font-size: 1.1em; 
+}
+html {
+    scroll-behavior: smooth !important;
+}
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--dark);
@@ -39,4 +54,46 @@ h1, h2, h3 {
     min-height: 500px;
     background-size: cover;
     background-position: center;
+}
+/* Garante que as imagens do carrossel fiquem invisíveis por padrão */
+.carousel-bg-item {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Transição suave de 1.5 segundos */
+    background-size: cover;
+    /* Prioriza o topo, mas mantém o centro horizontal */
+    background-position: center 15%; 
+    /* Evita que a imagem "estoure" demais em telas muito largas */
+    background-repeat: no-repeat;
+}
+
+/* Classe que o JavaScript adicionará para mostrar a imagem atual */
+.carousel-bg-item.active {
+    opacity: 0.4; /* Ajuste aqui a transparência (0.1 a 1.0) */
+}
+
+/* Ajuste a altura do header se necessário para cobrir bem as fotos */
+header {
+    position: relative;
+    background-color: var(--secondary); /* Cor de fundo caso a imagem demore a carregar */
+}
+/* Configuração para Animação de Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação lenta para o ícone do player */
+.animate-spin-slow {
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
