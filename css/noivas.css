@@ -4,7 +4,15 @@
   font-weight: 400;
   font-style: normal;
 }
-
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 :root {
     --primary: #b0cddf;
     --secondary: #7a5c58;
@@ -96,4 +104,13 @@ header {
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+#grid-presentes img {
+    filter: brightness(0.95); /* Deixa a foto levemente mais suave */
+    transition: transform 0.5s ease;
+}
+
+#grid-presentes div:hover img {
+    filter: brightness(1); /* Volta o brilho ao passar o mouse */
+    transform: scale(1.05);
 }
