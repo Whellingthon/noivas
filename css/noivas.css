@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
 
-/* Cartão que envolve cada número e texto (Aumentado) */
+/* Cartão que envolve cada número e texto (Aumentado para abrigar a fonte nova) */
 .countdown-card {
-    @apply text-center bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-2xl w-24 md:w-36 border border-white/10;
+    @apply text-center bg-white/10 backdrop-blur-md p-5 md:p-8 rounded-2xl w-28 md:w-44 border border-white/10 transition-all duration-300 hover:bg-white/20;
 }
 
-/* O número do contador em si (Aumentado de text-2xl/4xl para text-4xl/6xl) */
+/* O número do contador (Aumentado de text-4xl/6xl para text-5xl/8xl para ficar gigante!) */
 .countdown-number {
-    @apply text-4xl md:text-6xl font-bold text-white tracking-tight;
+    @apply text-5xl md:text-8xl font-bold text-white tracking-tight leading-none font-serif;
 }
 
-/* A legenda debaixo do número (Dias, Horas, etc. - Levemente aumentada) */
+/* A legenda debaixo do número (Dias, Horas, etc. — Levemente mais visível e espaçada) */
 .countdown-label {
-    @apply text-[11px] md:text-sm uppercase tracking-widest text-accent mt-2 font-medium;
+    @apply text-[12px] md:text-base uppercase tracking-[0.2em] text-accent mt-3 font-semibold;
 }
 /* Elementos da História */
 .story-img-wrapper {
