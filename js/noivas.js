@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURAÇÕES GLOBAIS ---
     const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
     const pixKeyValue = "livia.taylor@email.com"; 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwm0uoFJIrz_-kjTz8pTF5kBM8_CDsY-phV-OdfDiii-d9RKFBe_TekDjjJtwGupUK66A/exec"; 
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyXZ68mYXwJLElTjpI2M4uxHXjanX5uN0xq3TX_QWe63fQpbSgEJ_gtF3Qctphrqqs5xQ/exec"; 
     
     const siteMusic = document.getElementById('siteMusic');
     const backToTopBtn = document.getElementById('backToTopBtn');
@@ -89,15 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (n.includes("brinquedo") && n.includes("bebê")) fotoUrl = "img/brinquedobebe.jpeg";
                 else if (n.includes("higiene")) fotoUrl = "img/kithigienebebe.jpeg";
                 else if (n.includes("pomada")) fotoUrl = "img/pomadasalvadora.jpeg";
-                else if (n.includes("surpresa") && n.includes("arthur")) fotoUrl = "img/surpresarthur.jpeg";
+                else if (n.includes("surpresa") && n.includes("arthur")) fotoUrl = "img/brinquedobebe.jpeg";
                 else if (n.includes("ração") && n.includes("passar")) fotoUrl = "img/racao assarinhos.jpeg";
                 else if (n.includes("ração")) fotoUrl = "img/racao.jpeg";
                 else if (n.includes("petisco")) fotoUrl = "img/petisco.jpeg";
                 else if (n.includes("banho")) fotoUrl = "img/banhotosa.jpeg";
                 else if (n.includes("brinquedo") && n.includes("dog")) fotoUrl = "img/brinquedodog.jpeg";
                 else if (n.includes("caminha") || n.includes("cama")) fotoUrl = "img/camadog.jpeg";
-                else if (n.includes("timão") || n.includes("corinthians") || n.includes("sofá")) fotoUrl = "img/sofa-corinthians.jpeg";
-                else if (n.includes("terapia") || n.includes("jogo")) fotoUrl = "img/terapia jogo.jpeg";
+                else if (n.includes("timão") || n.includes("corinthians") || n.includes("sofá")) fotoUrl = "img/sofacorinthians.jpeg";
+                else if (n.includes("terapia") || n.includes("jogo")) fotoUrl = "img/terapiajogo.jpeg";
                 else if (n.includes("gaiola")) fotoUrl = "img/gaiola.jpeg";
                 else if (n.includes("acessórios")) fotoUrl = "img/acessoriosColeiros.jpeg";
                 else if (n.includes("vitamina")) fotoUrl = "img/VitaminasColeiros.jpeg";
