@@ -3,221 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lívia & Taylor - Nosso Casamento</title>
-    
+    <title>Lívia & Taylor — Nosso Casamento</title>
+    <meta name="description" content="O grande dia de Lívia & Taylor está chegando! Confirme sua presença e celebre conosco este momento único.">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Bad+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/noivas.css">
 </head>
-<body class="relative overflow-x-hidden w-full">
-    <div id="vanta-bg" class="fixed inset-0 -z-10 opacity-30"></div>
-    
-      <header class="text-white py-10 md:py-20 px-4 text-center relative overflow-hidden h-[500px] md:h-[600px] flex items-center justify-center">
-        <div id="hero-carousel" class="absolute inset-0 z-0">
-            <div class="carousel-bg-item active absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0042.jpg');"></div>
-            <div class="carousel-bg-item absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0043.jpg');"></div>
-            <div class="carousel-bg-item absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0044.jpg');"></div>
-            <div class="carousel-bg-item absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0045.jpg');"></div>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary)] via-[var(--primary)]/70 to-transparent z-10"></div>
-        
-        <div class="max-w-4xl mx-auto relative z-20 px-4">
-            <h1 class="text-5xl md:text-8xl font-wedding mb-4">Lívia & Taylor</h1>
-            <p class="text-lg md:text-2xl mb-8">Vamos nos <span class="casar-bold">casar</span>!</p>
+<body class="relative overflow-x-hidden bg-cream text-dark font-sans">
 
-            <div id="countdown-container" class="flex justify-center gap-2 md:gap-8 mb-12 scale-90 md:scale-100">
-                <div class="text-center bg-white/20 p-3 md:p-4 rounded-lg w-16 md:w-24"><div class="text-2xl md:text-4xl font-bold countdown-number" id="days">00</div><div class="text-[10px] md:text-xs uppercase">Dias</div></div>
-                <div class="text-center bg-white/20 p-3 md:p-4 rounded-lg w-16 md:w-24"><div class="text-2xl md:text-4xl font-bold countdown-number" id="hours">00</div><div class="text-[10px] md:text-xs uppercase">Horas</div></div>
-                <div class="text-center bg-white/20 p-3 md:p-4 rounded-lg w-16 md:w-24"><div class="text-2xl md:text-4xl font-bold countdown-number" id="minutes">00</div><div class="text-[10px] md:text-xs uppercase">Minutos</div></div>
-                <div class="text-center bg-white/20 p-3 md:p-4 rounded-lg w-16 md:w-24"><div class="text-2xl md:text-4xl font-bold countdown-number" id="seconds">00</div><div class="text-[10px] md:text-xs uppercase">Segundos</div></div>
+    <div id="petals-container" class="fixed inset-0 pointer-events-none z-40 overflow-hidden"></div>
+
+    <header class="relative h-screen min-h-[600px] w-full overflow-hidden">
+      <div id="hero-carousel" class="absolute inset-0 z-0">
+    <div class="carousel-bg-item active absolute inset-0 transition-opacity duration-[1500ms] opacity-100 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0042.jpg');"></div>
+    <div class="carousel-bg-item absolute inset-0 transition-opacity duration-[1500ms] opacity-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0043.jpg');"></div>
+    <div class="carousel-bg-item absolute inset-0 transition-opacity duration-[1500ms] opacity-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0044.jpg');"></div>
+    <div class="carousel-bg-item absolute inset-0 transition-opacity duration-[1500ms] opacity-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0045.jpg');"></div>
+</div>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/50 to-dark/30 z-10"></div>
+
+        <div class="relative z-20 h-full flex flex-col items-center justify-center text-white px-4 text-center">
+            <div class="flex items-center gap-4 mb-6 reveal-element opacity-0">
+                <div class="h-px w-16 bg-accent/60"></div>
+                <span class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase">Nós vamos casar</span>
+                <div class="h-px w-16 bg-accent/60"></div>
             </div>
-            <a href="#rsvp" class="inline-block bg-white text-[var(--secondary)] px-6 md:px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105 text-sm md:text-base">Confirmar Presença</a>
+
+            <h1 class="font-wedding text-6xl sm:text-7xl md:text-9xl mb-3 drop-shadow-2xl reveal-element opacity-0" style="animation-delay: .2s">
+                Lívia <span class="text-accent">&</span> Taylor
+            </h1>
+
+            <p class="font-cormorant text-xl md:text-2xl italic mb-10 text-white/90 reveal-element opacity-0" style="animation-delay: .4s">
+                "O amor nunca falha, nunca desiste, nunca acaba."
+            </p>
+
+            <div id="countdown-container" class="flex justify-center gap-2 sm:gap-4 md:gap-6 mb-10 reveal-element opacity-0" style="animation-delay: .6s">
+                <div class="countdown-card">
+                    <div class="countdown-number font-serif" id="days">00</div>
+                    <div class="countdown-label">Dias</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number font-serif" id="hours">00</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number font-serif" id="minutes">00</div>
+                    <div class="countdown-label">Min</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number font-serif" id="seconds">00</div>
+                    <div class="countdown-label">Seg</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 reveal-element opacity-0" style="animation-delay: .8s">
+                <a href="#rsvp" class="px-8 py-3.5 rounded-full bg-accent text-dark font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-xl text-sm md:text-base tracking-wide">
+                    Confirmar Presença
+                </a>
+                <a href="#historia" class="px-8 py-3.5 rounded-full border-2 border-white/60 text-white font-semibold hover:bg-white/10 transition-all duration-300 hover:scale-105 text-sm md:text-base tracking-wide">
+                    Nossa História
+                </a>
+            </div>
         </div>
+
+        <!-- Scroll Indicator Transformado em Link -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/70 animate-bounce">
+    <a href="#historia" class="hover:text-accent transition-colors duration-300" aria-label="Rolar para a nossa história">
+        <i data-lucide="chevron-down" class="w-8 h-8"></i>
+    </a>
+</div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 md:py-16">
-       
-        <section id="historia" class="mb-24 reveal">
-            <div class="text-center mb-12"><h2 class="text-3xl md:text-5xl font-bold">Nossa História</h2><div class="w-24 h-1 bg-[var(--accent)] mx-auto mt-4"></div></div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <h3 class="text-2xl font-semibold mb-4 text-[var(--secondary)]">Como Tudo Começou</h3>
-                    <p class="mb-4 text-gray-600 leading-relaxed text-sm md:text-base">Toda história de amor tem um começo… a nossa, curiosamente, começa com uma dúvida que até hoje nos faz sorrir: quem deu o primeiro passo?</p>
-                    <p class="mb-4 text-gray-600 leading-relaxed text-sm md:text-base">No dia 18 de julho de 2023, depois de um simples açaí — que virou tradição — começamos oficialmente a nossa história.</p>
-                </div>
-                <div class="order-1 md:order-2"><img src="img/IMG-20250802-WA0042.jpg" alt="Foto casal" class="rounded-lg shadow-xl w-full h-[300px] md:h-auto object-cover object-top"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-24">
-                <div><img src="img/IMG-20250802-WA0043.jpg" alt="Foto parque" class="rounded-lg shadow-xl w-full h-[300px] md:h-auto object-cover object-top"></div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-[var(--secondary)]">E depois disso...</h3>
-                    <p class="mb-4 text-gray-600 leading-relaxed text-sm md:text-base">Vivemos momentos leves e inesquecíveis. Até que, em Campos do Jordão, veio o pedido de casamento em 10 de agosto de 2024.</p>
-                    <p class="mb-4 text-gray-600 leading-relaxed text-sm md:text-base">E Deus nos presenteou com o maior dos milagres: a chegada do nosso filho, Arthur.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOTOS RESPONSIVAS -->
-        <section id="fotos" class="mb-24 reveal">
-            <div class="text-center mb-12"><h2 class="text-3xl md:text-5xl font-bold">Nossos Momentos</h2><div class="w-24 h-1 bg-[var(--accent)] mx-auto mt-4"></div></div>
-            <div class="relative max-w-4xl mx-auto">
-                <div class="carousel-container overflow-hidden relative rounded-lg shadow-xl h-[350px] md:h-[500px]">
-                    <div class="main-carousel-slide flex h-full transition-transform duration-500 ease-in-out">
-                        <div class="carousel-item w-full flex-shrink-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0042.jpg')"></div>
-                        <div class="carousel-item w-full flex-shrink-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0043.jpg')"></div>
-                        <div class="carousel-item w-full flex-shrink-0 bg-cover bg-top" style="background-image: url('img/IMG-20250802-WA0044.jpg')"></div>
+    <main>
+        <section id="historia" class="py-20 md:py-32 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <p class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase mb-2">Capítulo 01</p>
+                    <h2 class="font-serif text-4xl md:text-6xl text-primary">Nossa História</h2>
+                    <div class="flex items-center justify-center gap-3 mt-6">
+                        <div class="h-px w-12 bg-accent/40"></div>
+                        <i data-lucide="heart" class="w-5 h-5 text-accent"></i>
+                        <div class="h-px w-12 bg-accent/40"></div>
                     </div>
                 </div>
-                <button class="main-carousel-btn prev absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition" aria-label="Foto anterior" title="Foto anterior"><i data-feather="chevron-left"></i></button>
-                <button class="main-carousel-btn next absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition" aria-label="Próxima foto" title="Próxima foto"><i data-feather="chevron-right"></i></button>
-            </div>
-        </section>
 
-        <!-- INFORMAÇÕES ÚTEIS RESPONSIVAS -->
-        <section id="informacoes" class="mb-24 reveal">
-            <div class="text-center mb-12"><h2 class="text-3xl md:text-5xl font-bold">Informações Úteis</h2><div class="w-24 h-1 bg-[var(--accent)] mx-auto mt-4"></div></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl border-t-4 border-[var(--primary)] text-center">
-                    <i data-feather="home" class="w-10 h-10 text-[var(--secondary)] mx-auto mb-4"></i>
-                    <h3 class="text-xl font-bold mb-4">Hospedagem</h3>
-                    <p class="text-gray-600 mb-6 text-sm">Sugerimos reserva para 18 a 20 de Dezembro em Marília.</p>
-                    <a href="https://www.booking.com/searchresults.pt-br.html?ss=Mar%C3%ADlia&checkin=2026-12-18&checkout=2026-12-20" target="_blank" rel="noopener noreferrer" class="block bg-[#003580] text-white py-3 rounded-lg font-semibold hover:bg-blue-900 transition text-sm">Ver no Booking</a>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-20 md:mb-28 reveal-on-scroll">
+                    <div class="order-2 md:order-1">
+                        <span class="inline-block font-cormorant text-5xl text-accent/30 italic mb-2">01</span>
+                        <h3 class="font-serif text-2xl md:text-3xl text-primary mb-5">Como Tudo Começou</h3>
+                        <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
+                            Toda história de amor tem um começo… a nossa, curiosamente, começa com uma dúvida que até hoje nos faz sorrir: <em class="text-primary">quem deu o primeiro passo?</em>
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-base md:text-lg">
+                            No dia <strong class="text-accent">18 de julho de 2023</strong>, depois de um simples açaí — que virou tradição — começamos oficialmente a nossa história.
+                        </p>
+                    </div>
+                    <div class="order-1 md:order-2 story-img-wrapper">
+                        <img src="img/IMG-20250802-WA0042.jpg" alt="Foto do casal" class="story-img rounded-sm shadow-2xl w-full h-[320px] md:h-[460px] object-cover">
+                        <div class="story-img-deco"></div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-lg shadow-xl border-t-4 border-[var(--primary)] text-center">
-                    <i data-feather="scissors" class="w-10 h-10 text-[var(--secondary)] mx-auto mb-4"></i>
-                    <h3 class="text-xl font-bold mb-4">Traje</h3>
-                    <p class="text-[var(--secondary)] font-semibold italic mb-2">Social / Passeio Completo</p>
-                    <p class="text-gray-600 text-sm">Cores claras e tons pastéis são bem-vindos!</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center reveal-on-scroll">
+                    <div class="story-img-wrapper">
+                        <img src="img/IMG-20250802-WA0043.jpg" alt="Foto no parque" class="story-img rounded-sm shadow-2xl w-full h-[320px] md:h-[460px] object-cover">
+                        <div class="story-img-deco left-deco"></div>
+                    </div>
+                    <div>
+                        <span class="inline-block font-cormorant text-5xl text-accent/30 italic mb-2">02</span>
+                        <h3 class="font-serif text-2xl md:text-3xl text-primary mb-5">E Depois Disso…</h3>
+                        <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
+                            Vivemos momentos leves e inesquecíveis. Até que, em <strong class="text-accent">Campos do Jordão</strong>, veio o pedido de casamento em <strong class="text-accent">10 de agosto de 2024</strong>.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-base md:text-lg">
+                            E Deus nos presenteou com o maior dos milagres: a chegada do nosso filho, <strong class="text-primary">Arthur</strong>. 👶
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- RSVP RESPONSIVO (IFRAME) -->
-        <section id="rsvp" class="mb-16 md:mb-24">
-            <div class="text-center mb-8"><h2 class="text-3xl md:text-5xl font-bold">RSVP</h2><p class="text-gray-600 mt-2">Confirme até 25/09/2026</p></div>
-            <div class="bg-white rounded-lg shadow-xl max-w-4xl mx-auto overflow-hidden">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfh4mZ_9XM9s1o4oSkPrDZEp5FV5-0ab7u7GnxhTMmSkWe_qg/viewform?embedded=true" width="100%" height="800" title="Formulário de confirmação de presença" class="w-full border-0">Carregando…</iframe>
+        <section id="fotos" class="py-20 md:py-32 bg-cream-dark px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <p class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase mb-2">Capítulo 02</p>
+                    <h2 class="font-serif text-4xl md:text-6xl text-primary">Nossos Momentos</h2>
+                    <div class="flex items-center justify-center gap-3 mt-6">
+                        <div class="h-px w-12 bg-accent/40"></div>
+                        <i data-lucide="camera" class="w-5 h-5 text-accent"></i>
+                        <div class="h-px w-12 bg-accent/40"></div>
+                    </div>
+                </div>
+
+                <div class="relative reveal-on-scroll">
+                    <div class="carousel-container overflow-hidden relative rounded-lg shadow-2xl h-[350px] md:h-[550px]">
+                        <div id="mainCarousel" class="flex h-full transition-transform duration-700 ease-out">
+                            <div class="carousel-item w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0042.jpg')"></div>
+                            <div class="carousel-item w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0043.jpg')"></div>
+                            <div class="carousel-item w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0044.jpg')"></div>
+                            <div class="carousel-item w-full flex-shrink-0 bg-cover bg-center" style="background-image: url('img/IMG-20250802-WA0045.jpg')"></div>
+                        </div>
+                    </div>
+
+                    <button class="main-carousel-btn prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2.5 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110" aria-label="Foto anterior">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-primary"></i>
+                    </button>
+                    <button class="main-carousel-btn next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2.5 md:p-3 rounded-full shadow-lg hover:bg-white transition-all hover:scale-110" aria-label="Próxima foto">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-primary"></i>
+                    </button>
+
+                    <div id="carouselDots" class="flex justify-center gap-2 mt-6"></div>
+                </div>
             </div>
         </section>
-        <section id="lista-presentes" class="py-16 bg-gray-50 reveal">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-5xl font-bold font-wedding">Lista de Presentes</h2>
-        <p class="text-gray-600 mt-4 px-4">Escolha um item da nossa lista para nos presentear!</p>
-        <div class="w-24 h-1 bg-[var(--accent)] mx-auto mt-4"></div>
-    </div>
 
-    <!-- O JAVASCRIPT VAI INJETAR TUDO AQUI DENTRO -->
-    <div id="grid-presentes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-7xl mx-auto">
-        <!-- Spinner de carregamento -->
-        <div class="col-span-full text-center py-20">
-            <div class="animate-spin inline-block w-8 h-8 border-4 border-[var(--primary)] border-t-transparent rounded-full"></div>
-            <p class="mt-4 text-gray-500">Buscando mimos na planilha...</p>
-        </div>
-    </div>
-</section>
+        <section id="informacoes" class="py-20 md:py-32 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <p class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase mb-2">Capítulo 03</p>
+                    <h2 class="font-serif text-4xl md:text-6xl text-primary">Informações Úteis</h2>
+                    <div class="flex items-center justify-center gap-3 mt-6">
+                        <div class="h-px w-12 bg-accent/40"></div>
+                        <i data-lucide="info" class="w-5 h-5 text-accent"></i>
+                        <div class="h-px w-12 bg-accent/40"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <div class="info-card group reveal-on-scroll">
+                        <div class="info-icon-wrap">
+                            <i data-lucide="bed-double" class="w-8 h-8 text-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-primary mb-3">Hospedagem</h3>
+                        <p class="text-gray-600 text-sm mb-1">Sugerimos reserva para</p>
+                        <p class="text-accent font-semibold mb-5">18 a 20 de Dezembro</p>
+                        <a href="https://www.booking.com/searchresults.pt-br.html?ss=Mar%C3%ADlia&checkin=2026-12-18&checkout=2026-12-20" target="_blank" rel="noopener noreferrer" class="info-card-btn">
+                            Ver no Booking
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="info-card group reveal-on-scroll" style="transition-delay: .15s">
+                        <div class="info-icon-wrap">
+                            <i data-lucide="shirt" class="w-8 h-8 text-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-primary mb-3">Traje</h3>
+                        <p class="text-secondary font-semibold italic mb-2">Social / Passeio Completo</p>
+                        <p class="text-gray-600 text-sm mb-5">Cores claras e tons pastéis são bem-vindos!</p>
+                        <div class="flex justify-center gap-2 mt-auto">
+                            <span class="w-7 h-7 rounded-full bg-rose-200 border-2 border-white shadow-sm"></span>
+                            <span class="w-7 h-7 rounded-full bg-amber-100 border-2 border-white shadow-sm"></span>
+                            <span class="w-7 h-7 rounded-full bg-sky-100 border-2 border-white shadow-sm"></span>
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 border-2 border-white shadow-sm"></span>
+                            <span class="w-7 h-7 rounded-full bg-purple-100 border-2 border-white shadow-sm"></span>
+                        </div>
+                    </div>
+
+                    <div class="info-card group reveal-on-scroll" style="transition-delay: .3s">
+                        <div class="info-icon-wrap">
+                            <i data-lucide="map-pin" class="w-8 h-8 text-secondary group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-primary mb-3">Localização</h3>
+                        <p class="text-gray-600 text-sm mb-1">Marília - SP</p>
+                        <p class="text-accent font-semibold mb-5">Cerimônia ao ar livre</p>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="info-card-btn">
+                            Ver no Mapa
+                            <i data-lucide="navigation" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp" class="py-20 md:py-32 px-4 bg-cream-dark relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-40 h-40 opacity-10 -translate-x-1/2 -translate-y-1/2">
+                <i data-lucide="flower-2" class="w-full h-full text-accent"></i>
+            </div>
+            <div class="absolute bottom-0 right-0 w-40 h-40 opacity-10 translate-x-1/2 translate-y-1/2">
+                <i data-lucide="flower-2" class="w-full h-full text-accent"></i>
+            </div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-12 reveal-on-scroll">
+                    <p class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase mb-2">Capítulo 04</p>
+                    <h2 class="font-serif text-4xl md:text-6xl text-primary">Confirme sua Presença</h2>
+                    <div class="flex items-center justify-center gap-3 mt-6">
+                        <div class="h-px w-12 bg-accent/40"></div>
+                        <i data-lucide="mail-check" class="w-5 h-5 text-accent"></i>
+                        <div class="h-px w-12 bg-accent/40"></div>
+                    </div>
+                    <p class="text-gray-600 mt-6 text-lg">Confirme até <strong class="text-accent">25/09/2026</strong></p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden reveal-on-scroll">
+                    <div class="bg-primary py-3 text-center text-white">
+                        <p class="text-sm font-cormorant tracking-wide">Sua presença é o maior presente 💌</p>
+                    </div>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfh4mZ_9XM9s1o4oSkPrDZEp5FV5-0ab7u7GnxhTMmSkWe_qg/viewform?embedded=true" width="100%" height="800" title="Formulário de confirmação de presença" class="w-full border-0">Carregando…</iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="lista-presentes" class="py-20 md:py-32 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll">
+                    <p class="font-cormorant text-accent text-lg tracking-[0.3em] uppercase mb-2">Capítulo 05</p>
+                    <h2 class="font-serif text-4xl md:text-6xl text-primary">Lista de Presentes</h2>
+                    <div class="flex items-center justify-center gap-3 mt-6">
+                        <div class="h-px w-12 bg-accent/40"></div>
+                        <i data-lucide="gift" class="w-5 h-5 text-accent"></i>
+                        <div class="h-px w-12 bg-accent/40"></div>
+                    </div>
+                    <p class="text-gray-600 mt-4 px-4 max-w-xl mx-auto">Escolha um item da nossa lista para nos presentear e contribuir com nosso novo lar! 💝</p>
+                </div>
+
+                <div id="grid-presentes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="col-span-full text-center py-20">
+                        <div class="animate-spin inline-block w-10 h-10 border-4 border-accent border-t-transparent rounded-full"></div>
+                        <p class="mt-4 text-gray-500 font-cormorant text-lg">Buscando mimos...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
-   <footer class="bg-[var(--dark)] text-white py-10">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="text-center md:text-left mb-6 md:mb-0">
-                    <p class="mb-4 text-gray-300">© 2026 <strong>Professor </strong>Welington Hopka.<br>All rights reserved .</p>
-                    <div class="flex justify-center md:justify-start space-x-6 text-sm text-gray-400">
-                        <a href="#" class="hover:text-[var(--primary)] transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-[var(--primary)] transition-colors">Terms of Service</a>
-                    </div>
+    <footer class="bg-dark text-white py-16 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-10"><i data-lucide="flower-2" class="w-32 h-32 text-accent"></i></div>
+            <div class="absolute bottom-10 right-10"><i data-lucide="flower-2" class="w-24 h-24 text-accent"></i></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-10">
+                <h3 class="font-wedding text-4xl text-accent mb-2">Lívia & Taylor</h3>
+                <p class="text-white/50 font-cormorant text-lg italic">Para sempre, com amor.</p>
+                <div class="flex justify-center gap-5 mt-6">
+                    <a href="https://www.facebook.com/profile.php?id=100077098840627" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="https://www.instagram.com/hop_sistemas/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="https://github.com/Whellingthon" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="https://www.linkedin.com/in/welington-hopka/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="https://www.youtube.com/@estrategiaancestral" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    <a href="https://wa.me/5514997669155" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp"><i data-lucide="phone" class="w-5 h-5"></i></a>
                 </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <div class="flex space-x-5 mb-4">
-                        <a href="https://www.facebook.com/profile.php?id=100077098840627" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="Facebook"><i data-feather="facebook"></i></a>
-                        <a href="https://www.instagram.com/hop_sistemas/" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="Instagram"><i data-feather="instagram"></i></a>
-                        <a href="https://github.com/Whellingthon" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="GitHub"><i data-feather="github"></i></a>
-                        <a href="https://www.linkedin.com/in/welington-hopka/" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-                        <a href="https://www.youtube.com/@estrategiaancestral" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="YouTube"><i data-feather="youtube"></i></a>
-                        <a href="https://wa.me/5514997669155" target="_blank" rel="noopener" class="text-gray-400 hover:text-[var(--primary)] transition-colors" aria-label="WhatsApp"><i data-feather="phone"></i></a>
-                    </div>
-                    <p class="text-sm text-gray-500 italic">Passionate about education and technology.</p>
-                </div>
+            </div>
+
+            <div class="h-px bg-white/10 mb-8"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
+                <p class="text-center md:text-left">
+                    © 2026 <strong class="text-white/60">Professor</strong> Welington Hopka.<br>
+                    All rights reserved.
+                </p>
+                <p class="italic font-cormorant text-base">Passionate about education and technology.</p>
             </div>
         </div>
     </footer>
- <div id="pixModal" class="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-[100] hidden backdrop-blur-sm">
-    <!-- Card Branco Centralizado -->
-    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center relative transform transition-all duration-300 scale-95">
-        
-        <!-- Botão Fechar -->
-        <button id="closePixModal" aria-label="Fechar modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition">
-            <i data-feather="x" class="w-6 h-6"></i>
-        </button>
 
-        <h3 class="text-2xl font-bold mb-2 text-[var(--secondary)] font-wedding">Agradecemos o seu carinho!</h3>
-        <p id="modalPresenteNome" class="text-sm text-gray-500 mb-6">Você está presenteando: <br><span class="font-bold text-[var(--primary)] text-base italic">Carregando item...</span></p>
-
-        <!-- PARTE 1: Formulário (Quem fortalece) -->
-        <div class="space-y-4 mb-6">
-            <div class="text-left">
-                <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Seu Nome / Apelido</label>
-                <input type="text" id="donorName" placeholder="Ex: Tio João" class="w-full p-3 border border-gray-100 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition">
-            </div>
-            <div class="text-left">
-                <label class="text-[10px] uppercase text-gray-400 font-bold ml-1">Valor da Contribuição (R$)</label>
-                <input type="number" id="donorValue" class="w-full p-3 border border-gray-100 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition">
-            </div>
-            <button id="confirmGiftBtn" class="w-full bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md active:scale-95">
-                Confirmar e Ver PIX
+    <div id="pixModal" class="fixed inset-0 bg-dark/70 backdrop-blur-sm flex items-center justify-center p-4 z-[100] hidden">
+        <div id="pixModalCard" class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center relative">
+            <button id="closePixModal" aria-label="Fechar modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100">
+                <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-        </div>
 
-        <!-- PARTE 2: Dados do Pagamento (Ocultos inicialmente ou visíveis após clique) -->
-        <div id="pixPaymentArea" class="border-t border-dashed border-gray-200 pt-6 mt-6">
-            <p class="text-xs text-gray-600 mb-4">Escaneie o QR Code ou copie a chave:</p>
-            
-            <div class="bg-gray-50 p-4 rounded-2xl mb-6 flex flex-col items-center">
-                <img id="qrCodeImg" alt="QR Code PIX" class="w-40 h-40 border-4 border-white shadow-sm rounded-lg mb-4">
-                
-                <div class="flex items-center justify-between w-full bg-white p-3 rounded-lg border border-gray-100">
-                    <p id="pixKey" class="text-xs font-mono text-gray-600 truncate mr-2"></p>
-                    <button id="copyPixBtn" aria-label="Copiar Chave PIX" class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 transition">
-                        <i data-feather="copy" class="w-4 h-4 text-[var(--secondary)]"></i>
-                    </button>
+            <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center">
+                    <i data-lucide="gift" class="w-8 h-8 text-accent"></i>
                 </div>
             </div>
 
-            <p class="text-[10px] text-gray-400 italic">
-                *O valor será deduzido da vaquinha automaticamente após a confirmação.
-            </p>
+            <h3 class="font-serif text-2xl text-primary mb-2">Agradecemos o carinho! 🎁</h3>
+            <p id="modalPresenteNome" class="text-sm text-gray-500 mb-6">Você está presenteando: <br><span class="font-bold text-accent text-base italic">Carregando item...</span></p>
+
+            <div class="space-y-4 mb-6 text-left">
+                <div>
+                    <label class="text-[10px] uppercase text-gray-400 font-bold ml-1 block mb-1">Seu Nome / Apelido</label>
+                    <input type="text" id="donorName" placeholder="Ex: Tio João" class="pix-input">
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase text-gray-400 font-bold ml-1 block mb-1">Valor da Contribuição (R$)</label>
+                    <input type="number" id="donorValue" class="pix-input">
+                </div>
+                <button id="confirmGiftBtn" class="w-full bg-accent text-dark py-3 rounded-xl font-bold hover:bg-accent/90 transition shadow-md active:scale-95 flex items-center justify-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    Confirmar e Ver PIX
+                </button>
+            </div>
+
+            <div id="pixPaymentArea" class="border-t border-dashed border-gray-200 pt-6 mt-6 hidden">
+                <p class="text-xs text-gray-600 mb-4">Escaneie o QR Code ou copie a chave:</p>
+                <div class="bg-cream-dark p-5 rounded-2xl mb-4 flex flex-col items-center">
+                    <img id="qrCodeImg" alt="QR Code PIX" class="w-44 h-44 border-4 border-white shadow-md rounded-lg mb-4">
+                    <div class="flex items-center justify-between w-full bg-white p-3 rounded-lg border border-gray-100 gap-2">
+                        <p id="pixKey" class="text-xs font-mono text-gray-600 truncate"></p>
+                        <button id="copyPixBtn" aria-label="Copiar Chave PIX" class="p-2 bg-accent/20 rounded-md hover:bg-accent/30 transition flex-shrink-0">
+                            <i data-lucide="copy" class="w-4 h-4 text-accent"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-400 italic">*O valor será deduzido da vaquinha automaticamente após a confirmação.</p>
+            </div>
         </div>
     </div>
-</div>
-<!-- Mini Player de Créditos (Glassmorphism) -->
-<div id="music-player-info" class="fixed bottom-6 left-6 z-50 flex items-center bg-white/20 backdrop-blur-md border border-white/20 p-2 rounded-full shadow-lg transition-all duration-500 opacity-0 invisible translate-y-4 md:translate-y-0">
-    <div class="bg-[var(--primary)] p-2 rounded-full animate-spin-slow">
-        <i data-feather="music" class="w-4 h-4 text-white"></i>
+
+    <div id="music-player-info" class="fixed bottom-6 left-6 z-50 flex items-center bg-white/30 backdrop-blur-md border border-white/40 p-2 rounded-full shadow-lg transition-all duration-500 opacity-0 invisible translate-y-4">
+        <button id="musicToggle" class="bg-accent p-2 rounded-full animate-spin-slow hover:scale-110 transition" aria-label="Tocar/Pausar música">
+            <i data-lucide="music" class="w-4 h-4 text-white" id="musicIcon"></i>
+        </button>
+        <div class="px-3 pr-5 text-left">
+            <p class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Agora tocando</p>
+            <p class="text-xs font-semibold text-dark">Perfect — Ed Sheeran</p>
+        </div>
     </div>
-    <div class="px-3 pr-5">
-        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Agora tocando</p>
-        <p class="text-xs font-semibold text-[var(--dark)]">Perfect - Ed Sheeran</p>
-    </div>
-</div>
-    <!-- Botão Voltar ao Topo -->
-    <button id="backToTopBtn" aria-label="Voltar ao topo" 
-            class="fixed bottom-6 right-4 md:bottom-8 md:right-8 bg-[var(--secondary)] text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 z-50 opacity-0 invisible hover:scale-110 active:scale-95">
-        <i data-feather="arrow-up" class="w-6 h-6"></i>
+
+    <button id="backToTopBtn" aria-label="Voltar ao topo" class="fixed bottom-6 right-4 md:bottom-8 md:right-8 bg-primary text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 z-50 opacity-0 invisible hover:scale-110 active:scale-95">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
     </button>
 
-    <!-- Áudio -->
-    <audio id="siteMusic" preload="auto" playsinline loop>
-        <source src="music/Ed%20Sheeran%20-%20Perfect%20%28Official%20Music%20Video%29%20-%20Ed%20Sheeran%20%28youtube%29.mp3" type="audio/mpeg">
+    <audio id="siteMusic" preload="auto" loop>
+        <source src="https://www.soundjay.com/free-music/sounds/romantic-piano-01.mp3" type="audio/mpeg">
     </audio>
 
     <script src="js/noivas.js"></script>

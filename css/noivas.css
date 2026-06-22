@@ -1,116 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
-.bad-script-regular {
-  font-family: "Bad Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-:root {
-    --primary: #b0cddf;
-    --secondary: #7a5c58;
-    --accent: #b0cddf;
-    --light: #f8f1f0;
-    --dark: #3a2e2c;
-}
-/* "Enganando" o navegador para criar um negrito artificial */
-.casar-bold {
-    font-family: "Bad Script", cursive;
-    /* Criamos uma sombra curtinha da mesma cor do texto para ele parecer mais grosso */
-    text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor;
-    /* Opcional: Aumentar levemente o tamanho para dar mais peso */
-    font-size: 1.1em; 
-}
-html {
-    scroll-behavior: smooth !important;
-}
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--dark);
-    background-color: var(--light);
+
+/* Cartão que envolve cada número e texto (Aumentado) */
+.countdown-card {
+    @apply text-center bg-white/10 backdrop-blur-md p-4 md:p-6 rounded-2xl w-24 md:w-36 border border-white/10;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-}
-
-.hero-gradient {
-    background: linear-gradient(135deg, rgba(230, 184, 195, 0.9), rgba(212, 165, 154, 0.9));
-}
-
-.gift-card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
+/* O número do contador em si (Aumentado de text-2xl/4xl para text-4xl/6xl) */
 .countdown-number {
-    font-family: 'Playfair Display', serif;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    @apply text-4xl md:text-6xl font-bold text-white tracking-tight;
 }
 
+/* A legenda debaixo do número (Dias, Horas, etc. - Levemente aumentada) */
 .countdown-label {
-    font-family: 'Montserrat', sans-serif;
+    @apply text-[11px] md:text-sm uppercase tracking-widest text-accent mt-2 font-medium;
+}
+/* Elementos da História */
+.story-img-wrapper {
+    @apply relative z-10;
 }
 
-.carousel-item {
-    min-height: 500px;
-    background-size: cover;
-    background-position: center;
-}
-/* Garante que as imagens do carrossel fiquem invisíveis por padrão */
-.carousel-bg-item {
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* Transição suave de 1.5 segundos */
-    background-size: cover;
-    /* Prioriza o topo, mas mantém o centro horizontal */
-    background-position: center 15%; 
-    /* Evita que a imagem "estoure" demais em telas muito largas */
-    background-repeat: no-repeat;
+.story-img-deco {
+    @apply absolute -bottom-4 -right-4 w-full h-full border-2 border-accent/40 rounded-sm -z-10 transition-all duration-500;
 }
 
-/* Classe que o JavaScript adicionará para mostrar a imagem atual */
-.carousel-bg-item.active {
-    opacity: 0.4; /* Ajuste aqui a transparência (0.1 a 1.0) */
+.left-deco {
+    @apply -bottom-4 -left-4;
 }
 
-/* Ajuste a altura do header se necessário para cobrir bem as fotos */
-header {
-    position: relative;
-    background-color: var(--secondary); /* Cor de fundo caso a imagem demore a carregar */
-}
-/* Configuração para Animação de Scroll */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+/* Cards de Informação */
+.info-card {
+    @apply bg-white p-8 rounded-2xl shadow-md border border-cream-dark text-center flex flex-col items-center justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-xl;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+.info-icon-wrap {
+    @apply w-16 h-16 rounded-full bg-cream flex items-center justify-center mb-6;
 }
 
-/* Animação lenta para o ícone do player */
-.animate-spin-slow {
-    animation: spin 8s linear infinite;
+.info-card-btn {
+    @apply flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-xl font-semibold hover:bg-primary-dark transition-all text-sm mt-auto;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-#grid-presentes img {
-    filter: brightness(0.95); /* Deixa a foto levemente mais suave */
-    transition: transform 0.5s ease;
+/* Modais Customizados */
+.pix-input {
+    @apply w-full p-3 border border-gray-100 rounded-xl bg-cream focus:outline-none focus:ring-2 focus:ring-accent transition text-sm text-dark;
 }
 
-#grid-presentes div:hover img {
-    filter: brightness(1); /* Volta o brilho ao passar o mouse */
-    transform: scale(1.05);
+/* Ícones de redes sociais */
+.social-icon {
+    @apply text-white/60 hover:text-accent transition-colors p-2 hover:bg-white/5 rounded-full;
 }
