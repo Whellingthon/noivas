@@ -425,3 +425,9 @@ if (bgItems.length > 0) {
         bgItems[currentBgIndex].classList.add('active', 'opacity-100');
     }, 5000);
 }
+// Substitua o bloco do lucide no seu noivas.js por este:
+if (typeof lucide !== 'undefined') {
+    setTimeout(() => {
+        lucide.createIcons();
+    }, 500); // Aguarda 500ms para garantir que o rodapé foi lido
+}
