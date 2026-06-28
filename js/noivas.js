@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Pets (Zeca & Mel / Coleiros)
                 else if (n.includes("ração") && n.includes("passar")) fotoUrl = "img/racaopassarinhos.jpeg";
-                else if (n.includes("ração")) fotoUrl = "img/racaopremium.jpeg";
+                else if (n.includes("ração premium")) fotoUrl = "img/racaopremium.jpeg";
                 else if (n.includes("petisco")) fotoUrl = "img/petiscosexigem.jpeg";
                 else if (n.includes("banho") || n.includes("tosa")) fotoUrl = "img/banhotosamimados.jpeg";
                 else if (n.includes("brinquedo") && (n.includes("dog") || n.includes("destruir"))) fotoUrl = "img/brinquedosdestruir.jpeg";
