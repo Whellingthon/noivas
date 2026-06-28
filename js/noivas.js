@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURAÇÕES GLOBAIS ---
     const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
     const pixKeyValue = "livia.taylor@email.com"; 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx4u_NzIG8dbZTEFV847jPHU7BtDtk8aqtajOwqgM7GhxyeuqmxM-oNenDLlCoxXekhCw/exec"; 
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby2jHUhF7viWClenIJuTVl7dJnknPPtn2ixWpxtAn03JZcYpzS7ZXdyE11UoFjZT8ZnKQ/exec"; 
     
     const siteMusic = document.getElementById('siteMusic');
     const backToTopBtn = document.getElementById('backToTopBtn');
@@ -132,7 +132,19 @@ else if (n.includes("vitamina") && n.includes("bichinho")) fotoUrl = "img/vitami
                 else if (n.includes("tapete")) fotoUrl = "img/Tapetes.jpeg";
                 else if (n.includes("chaleira")) fotoUrl = "img/chaleira.jpeg";
                 else if (n.includes("micro-ondas") || n.includes("microondas")) fotoUrl = "img/microondas.jpeg";
-                else if (n.includes("compra") || n.includes("geladeira")) fotoUrl = "img/comprames.jpeg";
+                // Geladeira cheia
+else if (n.includes("geladeira")) {
+    fotoUrl = "img/geladeira.jpeg";
+}
+
+// Compras do mês
+else if (
+    n.includes("compra do mês") ||
+    n.includes("compras do mês") ||
+    n.includes("compra")
+) {
+    fotoUrl = "img/comprames.jpeg";
+}
                 else if (n.includes("delivery")) fotoUrl = "img/delivery.jpeg";
                 else if (n.includes("pizza")) fotoUrl = "img/pizza.jpeg";
                 else if (n.includes("colchão")) fotoUrl = "img/colchaonovo.jpeg";
@@ -146,14 +158,17 @@ else if (n.includes("vitamina") && n.includes("bichinho")) fotoUrl = "img/vitami
                 else if (n.includes("lavar")) fotoUrl = "img/maquinalavar.jpeg";
                 else if (n.includes("celular")) fotoUrl = "img/celularnovo.jpeg";
                 else if (n.includes("notebook")) fotoUrl = "img/notebook.jpeg";
-                else if (n.includes("fone")) fotoUrl = "img/foneouvido.jpeg";
+                else if (n.includes("fone")) fotoUrl = "img/microfone-oficial.jpeg";
                 else if (n.includes("caixa de som") || n.includes("caixasom")) fotoUrl = "img/Caixasom.jpeg";
                 else if (n.includes("tablet")) fotoUrl = "img/tablet.jpeg";
                 else if (n.includes("panelas")) fotoUrl = "img/jogopanelas.jpeg";
 
                 // Música, Vaidade e Extras
                 else if (n.includes("violão")) fotoUrl = "img/Violao.jpeg";
-                else if (n.includes("microfone")) fotoUrl = "img/MicrofoneNovo.jpeg";
+                // Garanta que esta condição esteja posicionada corretamente no seu noivas.js
+else if (n.includes("microfone")) {
+    fotoUrl = "img/microfone-oficial.jpeg"; // Use um nome novo e inédito
+}
                 else if (n.includes("aula de canto") || n.includes("canto")) fotoUrl = "img/canto-oficial.jpeg";
                 else if (n.includes("equipamento") && n.includes("music")) {
     fotoUrl = "img/equipamentosmusicais.jpeg";
