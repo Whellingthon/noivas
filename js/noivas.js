@@ -154,7 +154,7 @@ else if (n.includes("vitamina") && n.includes("bichinho")) fotoUrl = "img/vitami
                 // Música, Vaidade e Extras
                 else if (n.includes("violão")) fotoUrl = "img/Violao.jpeg";
                 else if (n.includes("microfone")) fotoUrl = "img/MicrofoneNovo.jpeg";
-                else if (n.includes("aula de canto") || n.includes("canto")) fotoUrl = "img/aulacanto.jpeg";
+                else if (n.includes("aula de canto") || n.includes("canto")) fotoUrl = "img/canto-oficial.jpeg";
                 else if (n.includes("equipamento") && n.includes("music")) {
     fotoUrl = "img/equipamentosmusicais.jpeg";
 }else if (n.includes("produção musical")) fotoUrl = "img/producaomusical.jpeg";
