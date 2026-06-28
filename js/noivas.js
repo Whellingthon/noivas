@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURAÇÕES GLOBAIS ---
     const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
     const pixKeyValue = "livia.taylor@email.com"; 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyXZ68mYXwJLElTjpI2M4uxHXjanX5uN0xq3TX_QWe63fQpbSgEJ_gtF3Qctphrqqs5xQ/exec"; 
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx4u_NzIG8dbZTEFV847jPHU7BtDtk8aqtajOwqgM7GhxyeuqmxM-oNenDLlCoxXekhCw/exec"; 
     
     const siteMusic = document.getElementById('siteMusic');
     const backToTopBtn = document.getElementById('backToTopBtn');
@@ -53,8 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 200);
 
-    // --- 2. LÓGICA DA LISTA DE PRESENTES ---
-    // --- 2. LÓGICA DA LISTA DE PRESENTES ADAPTADA PARA A NOVA API ---
     async function carregarPresentes() {
         const container = document.getElementById('grid-presentes');
         if (!container) return;
@@ -74,48 +72,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (falta <= 0 && total > 0) return ''; 
 
-                // Mapeamento dinâmico automático baseado no nome do presente para buscar na sua pasta img/
+          
                 let fotoUrl = "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&fit=crop"; // Padrão
                 const n = nomeOriginal.toLowerCase();
 
-                if (n.includes("air fryer") || n.includes("airfrier")) fotoUrl = "img/AirFrier.jpeg";
+               
+                if (n.includes("upgrade")) {fotoUrl = "img/upgradeluamel.jpeg";} 
+                else if (n.includes("lua de mel")) {fotoUrl = "img/luamelsonhos.jpeg";} 
+                else if (n.includes("hotel") || n.includes("hotelzinho")) fotoUrl = "img/hotelzinhochique.jpeg";
+                else if (n.includes("casal raiz")) {fotoUrl = "img/passeiocasaisraiz.jpeg";} 
+                else if (n.includes("boletos")) {fotoUrl = "img/passeioboletos.jpeg";}
+                else if (n.includes("viagem") || n.includes("sumir")) fotoUrl = "img/viagemaleatoria.jpeg";
+                else if (n.includes("café da manhã") || n.includes("cama (sem latido")) fotoUrl = "img/cafecama.jpeg";
+                else if (n.includes("fim de semana relax")) fotoUrl = "img/fimdesemanarelax.jpeg";
+                else if (n.includes("gasolina")) fotoUrl = "img/gasolinaMes.jpeg";
+
+                // Arthur e Bebê
+                else if (n.includes("fralda") || n.includes("socorro")) fotoUrl = "img/fraldabebe.jpeg";
+                else if (n.includes("comida") || n.includes("comidinhas")) fotoUrl = "img/comidabebe.jpeg";
+                else if (n.includes("roupinha") || (n.includes("roupa") && n.includes("beb")) || n.includes("estilosa")) {fotoUrl = "img/roupabebe.jpeg";}
+                else if (n.includes("brinquedo") && (n.includes("bebê") || n.includes("energia"))) fotoUrl = "img/brinquedosenergia.jpeg";
+                else if (n.includes("higiene")) fotoUrl = "img/kithigienebebe.jpeg";
+                else if (n.includes("pomad")) {
+    fotoUrl = "img/pomadasalvadora.jpeg";
+}else if (n.includes("surpresa") && n.includes("arthur")) fotoUrl = "img/surpresaarthur.jpeg";
+
+                // Pets (Zeca & Mel / Coleiros)
+                else if (n.includes("ração") && n.includes("passar")) fotoUrl = "img/racaopassarinhos.jpeg";
+                else if (n.includes("ração")) fotoUrl = "img/racaopremium.jpeg";
+                else if (n.includes("petisco")) fotoUrl = "img/petiscosexigem.jpeg";
+                else if (n.includes("banho") || n.includes("tosa")) fotoUrl = "img/banhotosamimados.jpeg";
+                else if (n.includes("brinquedo") && (n.includes("dog") || n.includes("destruir"))) fotoUrl = "img/brinquedosdestruir.jpeg";
+                else if (n.includes("caminha nova")) fotoUrl = "img/caminhanovadog.jpeg";
+                else if (n.includes("gaiola")) fotoUrl = "img/gaiolatop.jpeg";
+                else if (n.includes("passarinho")) {
+    fotoUrl = "img/passarinhos.jpeg";
+}
+else if (n.includes("vitamina") && n.includes("bichinho")) fotoUrl = "img/vitaminasbichinhos.jpeg";
+                else if (n.includes("cantinho dos pássaros")) fotoUrl = "img/melhoriascantinho.jpeg";
+
+                // Futebol e Corinthians
+                else if (n.includes("timão") || n.includes("manto")) fotoUrl = "img/mantotimao.jpeg";
+                else if (n.includes("dia de jogo") || n.includes("cervejinha")) fotoUrl = "img/diajogocerveja.jpeg";
+                else if (n.includes("tv maior") || n.includes("sofrer melhor")) fotoUrl = "img/tvmaiorsofrer.jpeg";
+                else if (n.includes("churrasco") && n.includes("jogo")) fotoUrl = "img/churrascojogo.jpeg";
+                else if (n.includes("sofá") && n.includes("corinthians")) fotoUrl = "img/sofacorinthians.jpeg";
+                else if (n.includes("terapia pós-jogo")) fotoUrl = "img/terapiaposjogo.jpeg";
+
+                // Cozinha, Casa e Eletrónicos
+                else if (n.includes("air fryer") || n.includes("airfrier")) fotoUrl = "img/AirFrier.jpeg";
                 else if (n.includes("cafeteira")) fotoUrl = "img/cafeteira.jpeg";
-                else if (n.includes("fralda")) fotoUrl = "img/fraldabebe.jpeg";
                 else if (n.includes("churrasco")) fotoUrl = "img/churrasco.jpeg";
                 else if (n.includes("jantar")) fotoUrl = "img/jantar.jpeg";
-                else if (n.includes("gasolina")) fotoUrl = "img/gasolinaMes.jpeg";
-                else if (n.includes("comida")) fotoUrl = "img/comidabebe.jpeg";
-                else if (n.includes("roupa") && n.includes("bebê")) fotoUrl = "img/roupabebe.jpeg";
-                else if (n.includes("brinquedo") && n.includes("bebê")) fotoUrl = "img/brinquedobebe.jpeg";
-                else if (n.includes("higiene")) fotoUrl = "img/kithigienebebe.jpeg";
-                else if (n.includes("pomada")) fotoUrl = "img/pomadasalvadora.jpeg";
-                else if (n.includes("surpresa") && n.includes("arthur")) fotoUrl = "img/brinquedobebe.jpeg";
-                else if (n.includes("ração") && n.includes("passar")) fotoUrl = "img/racao assarinhos.jpeg";
-                else if (n.includes("ração")) fotoUrl = "img/racao.jpeg";
-                else if (n.includes("petisco")) fotoUrl = "img/petisco.jpeg";
-                else if (n.includes("banho")) fotoUrl = "img/banhotosa.jpeg";
-                else if (n.includes("brinquedo") && n.includes("dog")) fotoUrl = "img/brinquedodog.jpeg";
-                else if (n.includes("caminha") || n.includes("cama")) fotoUrl = "img/camadog.jpeg";
-                else if (n.includes("timão") || n.includes("corinthians") || n.includes("sofá")) fotoUrl = "img/sofacorinthians.jpeg";
-                else if (n.includes("terapia") || n.includes("jogo")) fotoUrl = "img/terapiajogo.jpeg";
-                else if (n.includes("gaiola")) fotoUrl = "img/gaiola.jpeg";
-                else if (n.includes("acessórios")) fotoUrl = "img/acessoriosColeiros.jpeg";
-                else if (n.includes("vitamina")) fotoUrl = "img/VitaminasColeiros.jpeg";
-                else if (n.includes("canto") && n.includes("passar")) fotoUrl = "img/CantoAves.jpeg";
-                else if (n.includes("violão")) fotoUrl = "img/Violao.jpeg";
-                else if (n.includes("microfone")) fotoUrl = "img/MicrofoneNovo.jpeg";
-                else if (n.includes("canto")) fotoUrl = "img/AulaCanto.jpeg";
-                else if (n.includes("equipamento")) fotoUrl = "img/EquipamentoMusical.jpeg";
-                else if (n.includes("produção")) fotoUrl = "img/producaoMusical.jpeg";
-                else if (n.includes("maquiagem")) fotoUrl = "img/KitMaquiagem.jpeg";
-                else if (n.includes("perfume")) fotoUrl = "img/perfume.jpeg";
-                else if (n.includes("skincare")) fotoUrl = "img/Skincar.jpeg";
-                else if (n.includes("cabelo")) fotoUrl = "img/CabeloDiva.jpeg";
-                else if (n.includes("unha")) fotoUrl = "img/UnhaFeitas.jpeg";
                 else if (n.includes("reforma")) fotoUrl = "img/Reformacasa.jpeg";
                 else if (n.includes("pintura")) fotoUrl = "img/PinturaCasa.jpeg";
-                else if (n.includes("decoração")) fotoUrl = "img/Decoracao.jpeg";
-                else if (n.includes("planta")) fotoUrl = "img/plantinhas.jpeg";
+                else if (n.includes("decoração")) fotoUrl = "img/decornova.jpeg";
+                else if (n.includes("planta") || n.includes("matar")) fotoUrl = "img/plantinhas.jpeg";
                 else if (n.includes("cortina")) fotoUrl = "img/Cortinas.jpeg";
                 else if (n.includes("tapete")) fotoUrl = "img/Tapetes.jpeg";
                 else if (n.includes("chaleira")) fotoUrl = "img/chaleira.jpeg";
@@ -137,18 +149,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (n.includes("fone")) fotoUrl = "img/foneouvido.jpeg";
                 else if (n.includes("caixa de som") || n.includes("caixasom")) fotoUrl = "img/Caixasom.jpeg";
                 else if (n.includes("tablet")) fotoUrl = "img/tablet.jpeg";
-                else if (n.includes("manutenção") || n.includes("plataforma")) fotoUrl = "img/plataforma.jpeg";
-                else if (n.includes("seguro")) fotoUrl = "img/seguro.jpeg";
-                else if (n.includes("lavagem") || n.includes("carro")) fotoUrl = "img/lavacarro.jpeg";
+                else if (n.includes("panelas")) fotoUrl = "img/jogopanelas.jpeg";
+
+                // Música, Vaidade e Extras
+                else if (n.includes("violão")) fotoUrl = "img/Violao.jpeg";
+                else if (n.includes("microfone")) fotoUrl = "img/MicrofoneNovo.jpeg";
+                else if (n.includes("aula de canto") || n.includes("canto")) fotoUrl = "img/aulacanto.jpeg";
+                else if (n.includes("equipamento") && n.includes("music")) {
+    fotoUrl = "img/equipamentosmusicais.jpeg";
+}else if (n.includes("produção musical")) fotoUrl = "img/producaomusical.jpeg";
+                else if (n.includes("maquiagem")) fotoUrl = "img/KitMaquiagem.jpeg";
+                else if (n.includes("perfume")) fotoUrl = "img/perfume.jpeg";
+                else if (n.includes("skincare")) fotoUrl = "img/Skincar.jpeg";
+                else if (n.includes("cabelo")) fotoUrl = "img/CabeloDiva.jpeg";
+                else if (n.includes("unha")) fotoUrl = "img/UnhaFeitas.jpeg";
                 else if (n.includes("roupa")) fotoUrl = "img/roupasnovas.jpeg";
-                else if (n.includes("sapato")) fotoUrl = "img/sapatosnovos.jpeg";
+                else if (n.includes("sapato")) fotoUrl = "img/sapatos.jpeg";
                 else if (n.includes("bolsa")) fotoUrl = "img/bolsas.jpeg";
+                else if (n.includes("acessórios")) {
+    fotoUrl = "img/acessorios.jpeg";
+}
+                
+                // Diversos (Estudos, Carro, Zoação)
                 else if (n.includes("curso")) fotoUrl = "img/cursoOnline.jpeg";
                 else if (n.includes("livro")) fotoUrl = "img/livros.jpeg";
                 else if (n.includes("workshop")) fotoUrl = "img/workshop.jpeg";
                 else if (n.includes("especialização")) fotoUrl = "img/Especializacao.jpeg";
-                else if (n.includes("emergência") || n.includes("poupança") || n.includes("investimento") || n.includes("ajuda") || n.includes("pix")) fotoUrl = "img/ReservaEmergencia.jpeg";
+                else if (n.includes("seguro")) fotoUrl = "img/seguro.jpeg";
+                else if (n.includes("lavagem") || n.includes("carro")) fotoUrl = "img/lavagemcaprichada.jpeg";
+                else if (n.includes("manutenção")) fotoUrl = "img/manutencao.jpeg";
+                else if (n.includes("poupança")) { fotoUrl = "img/poupancacasal.jpeg";}
+                else if (
+    n.includes("reserva de emergência") ||
+    n.includes("emergência")
+) {
+    fotoUrl = "img/ReservaEmergencia.jpeg";
+}else if (n.includes("investimento")) {fotoUrl = "img/investimentos.jpeg";}               
+                else if (n.includes("fundo") && n.includes("sonho")) {fotoUrl = "img/fundosonhos.jpeg";}
+                else if (n.includes("vale noite")) fotoUrl = "img/valenoitearthur.jpeg";
+                else if (n.includes("vale silêncio")) fotoUrl = "img/valesilencio.jpeg";
+                else if (n.includes("dormir até tarde")) fotoUrl = "img/valedormirtarde.jpeg";
+                else if (n.includes("maratona de série")) fotoUrl = "img/valemaratona.jpeg";
+                else if (n.includes("não fazer nada")) fotoUrl = "img/valenaofazernada.jpeg";
+                else if (n.includes("surpresa especial")) fotoUrl = "img/surpresaespecial.jpeg";
+                else if (n.includes("presente misterioso")) fotoUrl = "img/presentemisterioso.jpeg";
+                else if (n.includes("qualquer desejo")) fotoUrl = "img/valequalquerdoce.jpeg";
+                else if (n.includes("pix do bem")) fotoUrl = "img/pixdobem.jpeg";
+                else if (n.includes("ajuda livre")) fotoUrl = "img/ajudalivre.jpeg";
+                else if (n.includes("contribuição com amor")) fotoUrl = "img/contribuicaoamor.jpeg";
+                else if (n.includes("dinheiro") || n.includes("dinheirinho") || n.includes("socorro") || n.includes("ajuda")) fotoUrl = "img/amorformadinheiro.jpeg";
                 else if (n.includes("cama")) fotoUrl = "img/camasonhos.jpeg";
+                else if (n.includes("mimo aleatório")) fotoUrl = "img/mimoaleatorio.jpeg";
+                else if (n.includes("vale alegria")) fotoUrl = "img/valealegria.jpeg";
+                else if (n.includes("surpresa premium")) fotoUrl = "img/surpresapremium.jpeg";
 
                 // Prepara strings seguras para o clique do botão
                 const nomeSeguro = nomeOriginal ? String(nomeOriginal) : "Presente Especial";
