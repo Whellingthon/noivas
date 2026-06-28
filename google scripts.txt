@@ -1,0 +1,203 @@
+// BANCO DE DADOS CORRIGIDO — FOTOS ALINHADAS CORRETAMENTE COM OS NOMES
+const DADOS_PRESENTES = [
+  // ✈️ Amor, viagens e rolezinhos
+  { "id": "1", "nome": "Lua de mel dos sonhos 🌙", "total": 2000, "recebido": 0, "foto": "img/luamelsonhos.jpeg" },
+  { "id": "2", "nome": "Upgrade na lua de mel (porque merecemos!)", "total": 1000, "recebido": 0, "foto": "img/upgradeluamel.jpeg" },
+  { "id": "3", "nome": "Jantar romântico só o casal 🍷", "total": 300, "recebido": 0, "foto": "img/jantarromantico.jpeg" },
+  { "id": "4", "nome": "Café da manhã na cama (sem latido do Zeca)", "total": 200, "recebido": 0, "foto": "img/cafecama.jpeg" },
+  { "id": "5", "nome": "Fim de semana relax", "total": 800, "recebido": 0, "foto": "img/fimdesemanarelax.jpeg" },
+  { "id": "6", "nome": "Passeio pra esquecer os boletos", "total": 400, "recebido": 0, "foto": "img/passeioboletos.jpeg" },
+  { "id": "7", "nome": "Viagem aleatória só pra sumir", "total": 1500, "recebido": 0, "foto": "img/viagemaleatoria.jpeg" },
+  { "id": "8", "nome": "Gasolina pra fugir da rotina", "total": 500, "recebido": 0, "foto": "img/gasolinarotina.jpeg" },
+  { "id": "9", "nome": "Hotelzinho chique", "total": 1000, "recebido": 0, "foto": "img/hotelzinhochique.jpeg" },
+  { "id": "10", "nome": "Passeio de casal raiz", "total": 250, "recebido": 0, "foto": "img/passeiocasaisraiz.jpeg" },
+
+  // 👶 Arthur (o verdadeiro chefe da casa)
+  { "id": "11", "nome": "Fraldas do Arthur (socorro 😂)", "total": 250, "recebido": 0, "foto": "img/fraldasarthur.jpeg" },
+  { "id": "12", "nome": "Comidinhas do príncipe", "total": 200, "recebido": 0, "foto": "img/comidinhasprincipe.jpeg" },
+  { "id": "13", "nome": "Roupinhas estilosas", "total": 300, "recebido": 0, "foto": "img/roupinhasestilosas.jpeg" },
+  { "id": "14", "nome": "Brinquedos pra gastar energia", "total": 200, "recebido": 0, "foto": "img/brinquedosenergia.jpeg" },
+  { "id": "15", "nome": "Kit higiene do bebê", "total": 200, "recebido": 0, "foto": "img/kithigienebebe.jpeg" },
+  { "id": "16", "nome": "Pomadinhas salvadoras", "total": 150, "recebido": 0, "foto": "img/pomadassalvadoras.jpeg" },
+  { "id": "17", "nome": "Presentinho surpresa pro Arthur", "total": 200, "recebido": 0, "foto": "img/surpresaarthur.jpeg" },
+
+  // 🐶 Zeca & Mel (os donos da casa)
+  { "id": "18", "nome": "Ração premium dos filhos de 4 patas", "total": 300, "recebido": 0, "foto": "img/racaopremium.jpeg" },
+  { "id": "19", "nome": "Petiscos (eles exigem!)", "total": 200, "recebido": 0, "foto": "img/petiscosexigem.jpeg" },
+  { "id": "20", "nome": "Banho & tosa dos mimados", "total": 150, "recebido": 0, "foto": "img/banhotosamimados.jpeg" },
+  { "id": "21", "nome": "Brinquedos pra destruir", "total": 150, "recebido": 0, "foto": "img/brinquedosdestruir.jpeg" },
+  { "id": "22", "nome": "Caminha nova pros doguinhos", "total": 300, "recebido": 0, "foto": "img/caminhanovadog.jpeg" },
+
+  // ⚫ white Taylor (Corinthiano sofredor 😂)
+  { "id": "23", "nome": "Manto do Timão 🖤", "total": 550, "recebido": 0, "foto": "img/mantotimao.jpeg" },
+  { "id": "24", "nome": "Dia de jogo + cervejinha", "total": 300, "recebido": 0, "foto": "img/diajogocerveja.jpeg" },
+  { "id": "25", "nome": "TV maior pra sofrer melhor 📺", "total": 2500, "recebido": 0, "foto": "img/tvmaiorsofrer.jpeg" },
+  { "id": "26", "nome": "Churrasco de jogo", "total": 500, "recebido": 0, "foto": "img/churrascojogo.jpeg" },
+  { "id": "27", "nome": "Sofá confortável pra assistir o Corinthians", "total": 3000, "recebido": 0, "foto": "img/sofacorinthians.jpeg" },
+  { "id": "28", "nome": "Terapia pós-jogo (necessário 😂)", "total": 200, "recebido": 0, "foto": "img/terapiaposjogo.jpeg" },
+
+  // 🐦 Taylor passarinheiro
+  { "id": "29", "nome": "Ração pros passarinhos", "total": 200, "recebido": 0, "foto": "img/racaopassarinhos.jpeg" },
+  { "id": "30", "nome": "Gaiola top", "total": 500, "recebido": 0, "foto": "img/gaiolatop.jpeg" },
+  { "id": "31", "nome": "Acessórios para os passarinhos", "total": 300, "recebido": 0, "foto": "img/passarinhos.jpeg" },
+  { "id": "32", "nome": "Vitaminas para os bichinhos", "total": 200, "recebido": 0, "foto": "img/vitaminasbichinhos.jpeg" },
+  { "id": "33", "nome": "Melhorias no cantinho dos pássaros", "total": 400, "recebido": 0, "foto": "img/melhoriascantinho.jpeg" },
+
+  // 🎤 Livia cantora & diva
+  { "id": "34", "nome": "Violão novo 🎶", "total": 1000, "recebido": 0, "foto": "img/violaonovo.jpeg" },
+  { "id": "35", "nome": "Microfone top", "total": 800, "recebido": 0, "foto": "img/microfonetop.jpeg" },
+  { "id": "36", "nome": "Aula de canto", "total": 300, "recebido": 0, "foto": "img/aulacanto.jpeg" },
+  { "id": "37", "nome": "Equipamentos musicais", "total": 500, "recebido": 0, "foto": "img/equipamentosmusicais.jpeg" },
+  { "id": "38", "nome": "Produção musical", "total": 1500, "recebido": 0, "foto": "img/producaomusical.jpeg" },
+
+  // 💄 Livia vaidosa
+  { "id": "39", "nome": "Kit maquiagem dos sonhos", "total": 500, "recebido": 0, "foto": "img/kitmaquiagem.jpeg" },
+  { "id": "40", "nome": "Perfume chique", "total": 400, "recebido": 0, "foto": "img/perfumechique.jpeg" },
+  { "id": "41", "nome": "Skincare de respeito", "total": 300, "recebido": 0, "foto": "img/skincarerespeito.jpeg" },
+  { "id": "42", "nome": "Cabelo de diva", "total": 300, "recebido": 0, "foto": "img/cabelodiva.jpeg" },
+  { "id": "43", "nome": "Unhas sempre impecáveis", "total": 200, "recebido": 0, "foto": "img/unhasimpecaveis.jpeg" },
+
+  // 🏡 Casa nova, vida nova
+  { "id": "44", "nome": "Ajuda na reforma", "total": 5000, "recebido": 0, "foto": "img/ajudareforma.jpeg" },
+  { "id": "45", "nome": "Pintura da casa", "total": 1500, "recebido": 0, "foto": "img/pinturacasa.jpeg" },
+  { "id": "46", "nome": "Decoração nova", "total": 500, "recebido": 0, "foto": "img/decornova.jpeg" },
+  { "id": "47", "nome": "Plantinhas (pra tentar não matar 😂)", "total": 200, "recebido": 0, "foto": "img/plantinhas.jpeg" },
+  { "id": "48", "nome": "Cortinas bonitas", "total": 400, "recebido": 0, "foto": "img/cortinasbonitas.jpeg" },
+  { "id": "49", "nome": "Tapete estiloso", "total": 300, "recebido": 0, "foto": "img/tapeteestiloso.jpeg" },
+
+  // 🍳 Cozinha dos recém-casados
+  { "id": "50", "nome": "Jogo de panelas", "total": 1200, "recebido": 0, "foto": "img/jogopanelas.jpeg" },
+  { "id": "51", "nome": "Air fryer salvadora 🍟", "total": 500, "recebido": 0, "foto": "img/airfryersalvadora.jpeg" },
+  { "id": "52", "nome": "Cafeteira (prioridade!)", "total": 350, "recebido": 0, "foto": "img/cafeteiraprioridade.jpeg" },
+  { "id": "53", "nome": "Chaleira pro café", "total": 150, "recebido": 0, "foto": "img/chaleiracafe.jpeg" },
+  { "id": "54", "nome": "Micro-ondas", "total": 700, "recebido": 0, "foto": "img/microondas.jpeg" },
+  { "id": "55", "nome": "Geladeira cheia (amém!)", "total": 800, "recebido": 0, "foto": "img/geladeiracheia.jpeg" },
+
+  // 🍔 Comida porque ninguém vive de amor
+  { "id": "56", "nome": "Compra do mên", "total": 500, "recebido": 0, "foto": "img/comprames.jpeg" },
+  { "id": "57", "nome": "Delivery sem culpa", "total": 250, "recebido": 0, "foto": "img/deliverysemculpa.jpeg" },
+  { "id": "58", "nome": "Pizza do fim de semana", "total": 200, "recebido": 0, "foto": "img/pizzafimdesemana.jpeg" },
+  { "id": "59", "nome": "Churrasco com amigos", "total": 500, "recebido": 0, "foto": "img/churrascoamigos.jpeg" },
+  { "id": "60", "nome": "Jantar especial", "total": 400, "recebido": 0, "foto": "img/jantarespecial.jpeg" },
+
+  // 🛏️ Conforto do casal
+  { "id": "61", "nome": "Cama dos sonhos", "total": 2500, "recebido": 0, "foto": "img/camadossonhos.jpeg" },
+  { "id": "62", "nome": "Colchão novo", "total": 1500, "recebido": 0, "foto": "img/colchaonovo.jpeg" },
+  { "id": "63", "nome": "Jogo de cama bonito", "total": 300, "recebido": 0, "foto": "img/jogocamabonito.jpeg" },
+  { "id": "64", "nome": "Cobertor quentinho", "total": 200, "recebido": 0, "foto": "img/cobertorquentinho.jpeg" },
+  { "id": "65", "nome": "Travesseiros top", "total": 200, "recebido": 0, "foto": "img/travesseirostop.jpeg" },
+
+  // 🧺 Vida real (boletos chegando)
+  { "id": "66", "nome": "Conta de luz 😭", "total": 300, "recebido": 0, "foto": "img/contaluz.jpeg" },
+  { "id": "67", "nome": "Conta de água", "total": 200, "recebido": 0, "foto": "img/contagua.jpeg" },
+  { "id": "68", "nome": "Internet", "total": 150, "recebido": 0, "foto": "img/internet.jpeg" },
+  { "id": "69", "nome": "Produtos de limpeza", "total": 200, "recebido": 0, "foto": "img/produtoslimpeza.jpeg" },
+  { "id": "70", "nome": "Máquina de lavar", "total": 2000, "recebido": 0, "foto": "img/maquinalavar.jpeg" },
+
+  // 📱 Tecnologia do casal
+  { "id": "71", "nome": "Celular novo", "total": 2000, "recebido": 0, "foto": "img/celularnovo.jpeg" },
+  { "id": "72", "nome": "Notebook", "total": 3500, "recebido": 0, "foto": "img/notebook.jpeg" },
+  { "id": "73", "nome": "Fone de ouvido", "total": 300, "recebido": 0, "foto": "img/foneouvido.jpeg" },
+  { "id": "74", "nome": "Caixa de som", "total": 400, "recebido": 0, "foto": "img/caixasom.jpeg" },
+  { "id": "75", "nome": "Tablet", "total": 1500, "recebido": 0, "foto": "img/tablet.jpeg" },
+
+  // 🚗 Sobrevivendo com carro
+  { "id": "76", "nome": "Gasolina do mês", "total": 500, "recebido": 0, "foto": "img/gasolinames.jpeg" },
+  { "id": "77", "nome": "Manutenção", "total": 800, "recebido": 0, "foto": "img/manutencao.jpeg" },
+  { "id": "78", "nome": "Seguro", "total": 1200, "recebido": 0, "foto": "img/seguro.jpeg" },
+  { "id": "79", "nome": "Lavagem caprichada", "total": 150, "recebido": 0, "foto": "img/lavagemcaprichada.jpeg" },
+
+  // 👕 Estilo & autoestima
+  { "id": "80", "nome": "Roupas novas", "total": 300, "recebido": 0, "foto": "img/roupasnovas.jpeg" },
+  { "id": "81", "nome": "Sapatos", "total": 400, "recebido": 0, "foto": "img/sapatos.jpeg" },
+  { "id": "82", "nome": "Bolsa", "total": 500, "recebido": 0, "foto": "img/bolsa.jpeg" },
+  { "id": "83", "nome": "Acessórios", "total": 200, "recebido": 0, "foto": "img/acessorios.jpeg" },
+
+  // 📚 Crescimento & futuro
+  { "id": "84", "nome": "Curso online", "total": 300, "recebido": 0, "foto": "img/cursoonline.jpeg" },
+  { "id": "85", "nome": "Livros", "total": 200, "recebido": 0, "foto": "img/livros.jpeg" },
+  { "id": "86", "nome": "Workshop", "total": 400, "recebido": 0, "foto": "img/workshop.jpeg" },
+  { "id": "87", "nome": "Especialização", "total": 1000, "recebido": 0, "foto": "img/especializacao.jpeg" },
+
+  // 💰 Adultos responsáveis (ou tentando)
+  { "id": "88", "nome": "Reserva de emergência", "total": 1500, "recebido": 0, "foto": "img/reservaemergencia.jpeg" },
+  { "id": "89", "nome": "Poupança do casal", "total": 500, "recebido": 0, "foto": "img/poupancacasal.jpeg" },
+  { "id": "90", "nome": "Investimentos", "total": 1000, "recebido": 0, "foto": "img/investimentos.jpeg" },
+  { "id": "91", "nome": "Fundo pra realizar sonhos", "total": 800, "recebido": 0, "foto": "img/fundosonhos.jpeg" },
+
+  // 😂 Extras divertidos
+  { "id": "92", "nome": "Vale noite sem Arthur", "total": 300, "recebido": 0, "foto": "img/valenoitearthur.jpeg" },
+  { "id": "93", "nome": "Vale silêncio em casa", "total": 200, "recebido": 0, "foto": "img/valesilencio.jpeg" },
+  { "id": "94", "nome": "Vale dormir até tarde", "total": 200, "recebido": 0, "foto": "img/valedormirtarde.jpeg" },
+  { "id": "95", "nome": "Vale maratona de série", "total": 200, "recebido": 0, "foto": "img/valemaratona.jpeg" },
+  { "id": "96", "nome": "Vale “não fazer nada”", "total": 150, "recebido": 0, "foto": "img/valenaofazernada.jpeg" },
+
+  // 💛 Finalizando com amor
+  { "id": "97", "nome": "Surpresa especial", "total": 300, "recebido": 0, "foto": "img/surpresaespecial.jpeg" },
+  { "id": "98", "nome": "Presente misterioso", "total": 200, "recebido": 0, "foto": "img/presentemisterioso.jpeg" },
+  { "id": "99", "nome": "Vale qualquer desejo", "total": 500, "recebido": 0, "foto": "img/valequalquerdoce.jpeg" },
+  { "id": "100", "nome": "Ajuda livre", "total": 250, "recebido": 0, "foto": "img/ajudalivre.jpeg" },
+  { "id": "101", "nome": "Contribuição com amor", "total": 150, "recebido": 0, "foto": "img/contribuicaoamor.jpeg" },
+  { "id": "102", "nome": "Pix do bem 😂", "total": 300, "recebido": 0, "foto": "img/pixdobem.jpeg" },
+  { "id": "103", "nome": "Ajuda pros boletos", "total": 400, "recebido": 0, "foto": "img/ajudaboletos.jpeg" },
+  { "id": "104", "nome": "Fundo “socorro”", "total": 500, "recebido": 0, "foto": "img/fundosocorro.jpeg" },
+  { "id": "105", "nome": "Dinheirinho abençoado", "total": 200, "recebido": 0, "foto": "img/dinheiroabencoado.jpeg" },
+  { "id": "106", "nome": "Mimo aleatório", "total": 150, "recebido": 0, "foto": "img/mimoaleatorio.jpeg" },
+  { "id": "107", "nome": "Ajuda pro casal não surtar", "total": 300, "recebido": 0, "foto": "img/ajudanaosurtar.jpeg" },
+  { "id": "108", "nome": "Vale alegria", "total": 200, "recebido": 0, "foto": "img/valealegria.jpeg" },
+  { "id": "109", "nome": "Presente surpresa premium", "total": 800, "recebido": 0, "foto": "img/surpresapremium.jpeg" },
+  { "id": "110", "nome": "Amor em forma de dinheiro 💛", "total": 150, "recebido": 0, "foto": "img/amorformadinheiro.jpeg" }
+];
+
+// Função que entrega a lista de presentes para o site (Método GET)
+function doGet() {
+  return ContentService.createTextOutput(JSON.stringify(DADOS_PRESENTES))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// Função para quando o convidado clica em confirmar (Método POST)
+function doPost(e) {
+  try {
+    const dadosRecebidos = JSON.parse(e.postData.contents);
+    
+    // Opcional: Se futuramente você quiser integrar com o Sheets para salvar quem doou:
+    // Aqui você pode colocar a lógica para gravar o nomeDoador e valor em uma planilha.
+    
+    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Mimo confirmado!" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(erro) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: erro.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+function sincronizarPlanilhaComNovosItens() {
+  // 1. Abra a planilha diretamente pelo ID dela
+  // COPIE O ID DA URL DA SUA PLANILHA E COLE ENTRE AS ASPAS ABAIXO:
+  // Exemplo de URL: https://docs.google.com/spreadsheets/d/SEU_ID_AQUI/edit
+  const ID_PLANILHA = "1xSZ1Megpd_ZS0EO4m2aX8jDbr1st_H2H8CSAqVF1WFU"; 
+  
+  const planilha = SpreadsheetApp.openById(ID_PLANILHA);
+  const aba = planilha.getSheetByName("Presentes"); // <-- Verifique se o nome da aba é exatamente este
+  
+  if (!aba) {
+    Logger.log("Aba 'Presentes' não encontrada! Verifique o nome da aba na sua planilha.");
+    return;
+  }
+  
+  // 2. Limpa o conteúdo antigo (preservando o cabeçalho na linha 1 se houver)
+  const ultimaLinha = aba.getLastRow();
+  if (ultimaLinha > 1) {
+    aba.getRange(2, 1, ultimaLinha - 1, aba.getLastColumn()).clearContent();
+  } else if (ultimaLinha === 0) {
+    // Se a planilha estiver totalmente limpa, podemos adicionar o cabeçalho
+    aba.appendRow(["ID", "NOME", "TOTAL", "RECEBIDO"]);
+  }
+  
+  // 3. Varre o array DADOS_PRESENTES e insere linha por linha
+  DADOS_PRESENTES.forEach(item => {
+    // Insere nas colunas: ID, NOME, TOTAL, RECEBIDO
+    aba.appendRow([item.id, item.nome, item.total, item.recebido]);
+  });
+  
+  Logger.log("Planilha sincronizada com sucesso com os " + DADOS_PRESENTES.length + " itens!");
+}
