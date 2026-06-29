@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
-    const pixKeyValue = "livia.taylor@email.com"; 
+    const pixKeyValue = "d47413ee-b96f-43a9-8a55-ab37cf76e1e2"; 
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby2jHUhF7viWClenIJuTVl7dJnknPPtn2ixWpxtAn03JZcYpzS7ZXdyE11UoFjZT8ZnKQ/exec"; 
     
   
@@ -157,7 +157,7 @@ const pixKeyText = document.getElementById('pixKey');
 const copyPixBtn = document.getElementById('copyPixBtn');
 
 
-const chavePix = "liviafon.pereira@gmail.com";
+const chavePix = "d47413ee-b96f-43a9-8a55-ab37cf76e1e2";
 
 
 window.prepararPresente = function(id, nome, valorFaltante) {
