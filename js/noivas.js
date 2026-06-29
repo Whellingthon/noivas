@@ -1,4 +1,4 @@
-// ===== CONFIGURAÇÃO INTERNA DO TAILWIND =====
+
 window.tailwind.config = {
     theme: {
         extend: {
@@ -28,7 +28,7 @@ window.tailwind.config = {
     }
 };
 
-// ===== COMPORTAMENTOS DO SITE =====
+
 document.addEventListener('DOMContentLoaded', () => {
 
     if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pixKeyValue = "livia.taylor@email.com"; 
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby2jHUhF7viWClenIJuTVl7dJnknPPtn2ixWpxtAn03JZcYpzS7ZXdyE11UoFjZT8ZnKQ/exec"; 
     
-    // Animação Entrada Hero
+  
     setTimeout(() => {
         document.querySelectorAll('.reveal-element').forEach(el => {
             el.classList.remove('opacity-0');
@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (falta <= 0 && total > 0) return ''; 
 
-                // SOLUÇÃO DEFINITIVA: Consome a URL da foto direto da API/Planilha.
-                // Caso a propriedade não exista por algum erro, cai na imagem genérica de fallback.
+
                 let fotoUrl = p.FOTO || p.foto || "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&fit=crop";
 
                 const nomeSeguro = nomeOriginal ? String(nomeOriginal) : "Presente Especial";
@@ -102,12 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarPresentes();
     
-    // --- Funções Auxiliares (Carrossel, Modal, Scroll) ---
-    // (O restante do seu código original que manipula modais e botões deve continuar aqui caso tenha algo extra omitido, 
-    // mas com base no que foi enviado, o fluxo encerra na chamada do carregarPresentes)
+   
 });
-
-// --- 7. CARROSSEL DE FUNDO HERO ---
 const bgItems = document.querySelectorAll('#hero-carousel .carousel-bg-item');
 let currentBgIndex = 0;
 
@@ -123,14 +118,14 @@ if (bgItems.length > 0) {
     }, 5000);
 }
 
-// Inicialização segura dos ícones
+
 if (typeof lucide !== 'undefined') {
     setTimeout(() => {
         lucide.createIcons();
-    }, 500); // Aguarda 500ms para garantir que todos os nós do DOM foram lidos
+    }, 500); 
 }
 document.addEventListener('DOMContentLoaded', () => {
-    // ... seus outros códigos ...
+  
     const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
 
     function updateCountdown() {
@@ -151,11 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 });
-// ==========================================
-// LÓGICA DO MODAL PIX E PRESENTES
-// ==========================================
 
-// Variáveis do Modal
 const pixModal = document.getElementById('pixModal');
 const closePixModalBtn = document.getElementById('closePixModal');
 const confirmGiftBtn = document.getElementById('confirmGiftBtn');
@@ -165,43 +156,42 @@ const qrCodeImg = document.getElementById('qrCodeImg');
 const pixKeyText = document.getElementById('pixKey');
 const copyPixBtn = document.getElementById('copyPixBtn');
 
-// Chave PIX (ajuste se necessário)
-const chavePix = "livia.taylor@email.com";
 
-// 1. Função para Abrir o Modal (Chamada pelo botão "Presentear")
+const chavePix = "liviafon.pereira@gmail.com";
+
+
 window.prepararPresente = function(id, nome, valorFaltante) {
-    // Atualiza o nome do presente no modal
+   
     modalPresenteNome.innerHTML = `Você está presenteando: <br><span class="font-bold text-accent text-base italic">${nome}</span>`;
     
-    // Limpa os campos e esconde a área do QR Code toda vez que abrir
+   
     document.getElementById('donorName').value = '';
-    
-    // Sugere o valor total ou faltante automaticamente
+   
     const inputValor = document.getElementById('donorValue');
     inputValor.value = valorFaltante > 0 ? valorFaltante : '';
     
     pixPaymentArea.classList.add('hidden');
     
-    // Exibe o modal
+
     pixModal.classList.remove('hidden');
     
-    // Recarrega os ícones Lucide (caso não apareçam de imediato)
+   
     if (typeof lucide !== 'undefined') lucide.createIcons();
 };
 
-// 2. Fechar o Modal clicando no X
+
 closePixModalBtn.addEventListener('click', () => {
     pixModal.classList.add('hidden');
 });
 
-// 3. Fechar o Modal clicando fora do quadro branco
+
 pixModal.addEventListener('click', (e) => {
     if (e.target === pixModal) {
         pixModal.classList.add('hidden');
     }
 });
 
-// 4. Ação do Botão "Confirmar e Ver PIX"
+
 confirmGiftBtn.addEventListener('click', () => {
     const nomeDoador = document.getElementById('donorName').value;
     const valorDoador = document.getElementById('donorValue').value;
@@ -211,26 +201,19 @@ confirmGiftBtn.addEventListener('click', () => {
         return;
     }
 
-    // Mostra a área do QR Code e da Chave PIX
     pixPaymentArea.classList.remove('hidden');
     
-    // Define a chave no campo de texto
     pixKeyText.textContent = chavePix;
 
-    // Gera o QR Code visual (usando uma API gratuita baseada na chave)
-    // Nota: Para um código PIX Copia e Cola real com o valor exato, seria necessário usar uma biblioteca de Payload PIX, mas este QR Code serve como atalho para a chave.
     qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(chavePix)}`;
 });
 
-// 5. Botão de Copiar Chave PIX
 copyPixBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(chavePix).then(() => {
-        // Feedback visual mudando o ícone para um "Check" de sucesso
         const iconeOriginal = copyPixBtn.innerHTML;
         copyPixBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-600"></i>';
         if (typeof lucide !== 'undefined') lucide.createIcons();
         
-        // Volta para o ícone de copiar após 2 segundos
         setTimeout(() => {
             copyPixBtn.innerHTML = iconeOriginal;
             if (typeof lucide !== 'undefined') lucide.createIcons();
