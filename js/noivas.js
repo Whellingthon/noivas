@@ -151,3 +151,92 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 });
+// ==========================================
+// LÓGICA DO MODAL PIX E PRESENTES
+// ==========================================
+
+// Variáveis do Modal
+const pixModal = document.getElementById('pixModal');
+const closePixModalBtn = document.getElementById('closePixModal');
+const confirmGiftBtn = document.getElementById('confirmGiftBtn');
+const pixPaymentArea = document.getElementById('pixPaymentArea');
+const modalPresenteNome = document.getElementById('modalPresenteNome');
+const qrCodeImg = document.getElementById('qrCodeImg');
+const pixKeyText = document.getElementById('pixKey');
+const copyPixBtn = document.getElementById('copyPixBtn');
+
+// Chave PIX (ajuste se necessário)
+const chavePix = "livia.taylor@email.com";
+
+// 1. Função para Abrir o Modal (Chamada pelo botão "Presentear")
+window.prepararPresente = function(id, nome, valorFaltante) {
+    // Atualiza o nome do presente no modal
+    modalPresenteNome.innerHTML = `Você está presenteando: <br><span class="font-bold text-accent text-base italic">${nome}</span>`;
+    
+    // Limpa os campos e esconde a área do QR Code toda vez que abrir
+    document.getElementById('donorName').value = '';
+    
+    // Sugere o valor total ou faltante automaticamente
+    const inputValor = document.getElementById('donorValue');
+    inputValor.value = valorFaltante > 0 ? valorFaltante : '';
+    
+    pixPaymentArea.classList.add('hidden');
+    
+    // Exibe o modal
+    pixModal.classList.remove('hidden');
+    
+    // Recarrega os ícones Lucide (caso não apareçam de imediato)
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+};
+
+// 2. Fechar o Modal clicando no X
+closePixModalBtn.addEventListener('click', () => {
+    pixModal.classList.add('hidden');
+});
+
+// 3. Fechar o Modal clicando fora do quadro branco
+pixModal.addEventListener('click', (e) => {
+    if (e.target === pixModal) {
+        pixModal.classList.add('hidden');
+    }
+});
+
+// 4. Ação do Botão "Confirmar e Ver PIX"
+confirmGiftBtn.addEventListener('click', () => {
+    const nomeDoador = document.getElementById('donorName').value;
+    const valorDoador = document.getElementById('donorValue').value;
+
+    if (!nomeDoador || !valorDoador || valorDoador <= 0) {
+        alert("Por favor, preencha seu nome e um valor válido para prosseguir.");
+        return;
+    }
+
+    // Mostra a área do QR Code e da Chave PIX
+    pixPaymentArea.classList.remove('hidden');
+    
+    // Define a chave no campo de texto
+    pixKeyText.textContent = chavePix;
+
+    // Gera o QR Code visual (usando uma API gratuita baseada na chave)
+    // Nota: Para um código PIX Copia e Cola real com o valor exato, seria necessário usar uma biblioteca de Payload PIX, mas este QR Code serve como atalho para a chave.
+    qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(chavePix)}`;
+});
+
+// 5. Botão de Copiar Chave PIX
+copyPixBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(chavePix).then(() => {
+        // Feedback visual mudando o ícone para um "Check" de sucesso
+        const iconeOriginal = copyPixBtn.innerHTML;
+        copyPixBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-600"></i>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        
+        // Volta para o ícone de copiar após 2 segundos
+        setTimeout(() => {
+            copyPixBtn.innerHTML = iconeOriginal;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }, 2000);
+    }).catch(err => {
+        console.error('Erro ao copiar', err);
+        alert("Erro ao copiar a chave PIX. Tente selecionar o texto e copiar manualmente.");
+    });
+});
