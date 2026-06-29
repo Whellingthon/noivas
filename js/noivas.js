@@ -62,118 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (falta <= 0 && total > 0) return ''; 
 
-                let fotoUrl = "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&fit=crop";
-                const n = nomeOriginal.toLowerCase();
-
-                // ORDEM DE PRECEDÊNCIA (Específicos primeiro, genéricos depois)
-                if (n.includes("upgrade")) fotoUrl = "img/upgradeluamel.jpeg";
-                else if (n.includes("lua de mel")) fotoUrl = "img/luamelsonhos.jpeg";
-                else if (n.includes("hotelzinho")) fotoUrl = "img/hotelzinhochique.jpeg";
-                else if (n.includes("casal raiz")) fotoUrl = "img/passeiocasaisraiz.jpeg";
-                else if (n.includes("boletos")) fotoUrl = "img/passeioboletos.jpeg";
-                else if (n.includes("viagem") || n.includes("sumir")) fotoUrl = "img/viagemaleatoria.jpeg";
-                else if (n.includes("café da manhã") || n.includes("cama (sem latido")) fotoUrl = "img/cafecama.jpeg";
-                else if (n.includes("fim de semana relax")) fotoUrl = "img/fimdesemanarelax.jpeg";
-                else if (n.includes("gasolina")) fotoUrl = "img/gasolinaMes.jpeg";
-                else if (n.includes("fralda")) fotoUrl = "img/fraldabebe.jpeg";
-                else if (n.includes("comidinhas")) fotoUrl = "img/comidabebe.jpeg";
-                else if (n.includes("roupinha") || (n.includes("roupa") && n.includes("beb")) || n.includes("estilosa")) fotoUrl = "img/roupabebe.jpeg";
-                else if (n.includes("brinquedo") && (n.includes("bebê") || n.includes("energia"))) fotoUrl = "img/brinquedosenergia.jpeg";
-                else if (n.includes("higiene")) fotoUrl = "img/kithigienebebe.jpeg";
-                else if (n.includes("pomad")) fotoUrl = "img/pomadasalvadora.jpeg";
-                else if (n.includes("surpresa") && n.includes("arthur")) fotoUrl = "img/surpresaarthur.jpeg";
-                else if (n.includes("ração") && n.includes("passar")) fotoUrl = "img/racaopassarinhos.jpeg";
-                else if (n.includes("ração premium")) fotoUrl = "img/racaopremium.jpeg";
-                else if (n.includes("petisco")) fotoUrl = "img/petiscosexigem.jpeg";
-                else if (n.includes("banho") || n.includes("tosa")) fotoUrl = "img/banhotosamimados.jpeg";
-                else if (n.includes("brinquedo") && (n.includes("dog") || n.includes("destruir"))) fotoUrl = "img/brinquedosdestruir.jpeg";
-                else if (n.includes("caminha nova")) fotoUrl = "img/caminhanovadog.jpeg";
-                else if (n.includes("gaiola")) fotoUrl = "img/gaiolatop.jpeg";
-                else if (n.includes("passarinho")) fotoUrl = "img/passarinhos.jpeg";
-                else if (n.includes("vitamina") && n.includes("bichinho")) fotoUrl = "img/vitaminasbichinhos.jpeg";
-                else if (n.includes("cantinho dos pássaros")) fotoUrl = "img/melhoriascantinho.jpeg";
-                else if (n.includes("timão") || n.includes("manto")) fotoUrl = "img/mantotimao.jpeg";
-                else if (n.includes("dia de jogo") || n.includes("cervejinha")) fotoUrl = "img/diajogocerveja.jpeg";
-                else if (n.includes("tv maior") || n.includes("sofrer melhor")) fotoUrl = "img/tvmaiorsofrer.jpeg";
-                else if (n.includes("churrasco") && n.includes("jogo")) fotoUrl = "img/churrascojogo.jpeg";
-                else if (n.includes("sofá") && n.includes("corinthians")) fotoUrl = "img/sofacorinthians.jpeg";
-                else if (n.includes("terapia pós-jogo")) fotoUrl = "img/terapiaposjogo.jpeg";
-                else if (n.includes("air fryer") || n.includes("airfrier")) fotoUrl = "img/AirFrier.jpeg";
-                else if (n.includes("cafeteira")) fotoUrl = "img/cafeteira.jpeg";
-                else if (n.includes("churrasco")) fotoUrl = "img/churrasco.jpeg";
-                else if (n.includes("jantar")) fotoUrl = "img/jantar.jpeg";
-                else if (n.includes("reforma")) fotoUrl = "img/reforma-oficial.jpeg";
-                else if (n.includes("pintura")) fotoUrl = "img/pintura-oficial.jpeg";
-                else if (n.includes("decoração")) fotoUrl = "img/decornova.jpeg";
-                else if (n.includes("planta") || n.includes("matar")) fotoUrl = "img/plantinhas.jpeg";
-                else if (n.includes("cortina")) fotoUrl = "img/Cortinas.jpeg";
-                else if (n.includes("tapete")) fotoUrl = "img/Tapetes.jpeg";
-                else if (n.includes("chaleira")) fotoUrl = "img/chaleira.jpeg";
-                else if (n.includes("micro-ondas") || n.includes("microondas")) fotoUrl = "img/microondas.jpeg";
-                else if (n.includes("geladeira")) fotoUrl = "img/geladeira.jpeg";
-                else if (n.includes("compra do mês") || n.includes("compras do mês")) fotoUrl = "img/comprames.jpeg";
-                else if (n.includes("delivery")) fotoUrl = "img/delivery.jpeg";
-                else if (n.includes("pizza")) fotoUrl = "img/pizza.jpeg";
-                else if (n.includes("colchão")) fotoUrl = "img/colchaonovo.jpeg";
-                else if (n.includes("jogo de cama")) fotoUrl = "img/jogocama.jpeg";
-                else if (n.includes("cobertor")) fotoUrl = "img/cobertor.jpeg";
-                else if (n.includes("travesseiro")) fotoUrl = "img/travasseiro.jpeg";
-                else if (n.includes("luz")) fotoUrl = "img/contaluz.jpeg";
-                else if (n.includes("água")) fotoUrl = "img/contadagua.jpeg";
-                else if (n.includes("internet")) fotoUrl = "img/internet.jpeg";
-                else if (n.includes("limpeza")) fotoUrl = "img/produtosLimpeza.jpeg";
-                else if (n.includes("lavar")) fotoUrl = "img/maquinalavar.jpeg";
-                else if (n.includes("celular")) fotoUrl = "img/celularnovo.jpeg";
-                else if (n.includes("notebook")) fotoUrl = "img/notebook.jpeg";
-                else if (n.includes("fone de ouvido") || n.includes("headphone") || n.includes("headset")) fotoUrl = "img/foneouvido.jpeg";
-                else if (n.includes("microfone")) fotoUrl = "img/microfone-oficial.jpeg";
-                else if (n.includes("caixa de som") || n.includes("caixasom")) fotoUrl = "img/Caixasom.jpeg";
-                else if (n.includes("tablet")) fotoUrl = "img/tablet.jpeg";
-                else if (n.includes("panelas")) fotoUrl = "img/jogopanelas.jpeg";
-                else if (n.includes("violão")) fotoUrl = "img/Violao.jpeg";
-                else if (n.includes("aula de canto") || n.includes("canto")) fotoUrl = "img/canto-oficial.jpeg";
-                else if (n.includes("produção musical")) fotoUrl = "img/producao-oficial.jpeg";
-                else if (n.includes("equipamento") && n.includes("music")) fotoUrl = "img/equipamentosmusicais.jpeg";
-                else if (n.includes("maquiagem")) fotoUrl = "img/KitMaquiagem.jpeg";
-                else if (n.includes("perfume")) fotoUrl = "img/perfume.jpeg";
-                else if (n.includes("skincare")) fotoUrl = "img/Skincar.jpeg";
-                else if (n.includes("cabelo")) fotoUrl = "img/CabeloDiva.jpeg";
-                else if (n.includes("unha")) fotoUrl = "img/UnhaFeitas.jpeg";
-                else if (n.includes("roupa")) fotoUrl = "img/roupasnovas.jpeg";
-                else if (n.includes("sapato")) fotoUrl = "img/sapatos.jpeg";
-                else if (n.includes("bolsa")) fotoUrl = "img/bolsas.jpeg";
-                else if (n.includes("acessórios")) fotoUrl = "img/acessorios.jpeg";
-                else if (n.includes("curso")) fotoUrl = "img/cursoOnline.jpeg";
-                else if (n.includes("livro")) fotoUrl = "img/livros.jpeg";
-                else if (n.includes("workshop")) fotoUrl = "img/workshop.jpeg";
-                else if (n.includes("especialização")) fotoUrl = "img/Especializacao.jpeg";
-                else if (n.includes("seguro")) fotoUrl = "img/seguro.jpeg";
-                else if (n.includes("lavagem") || n.includes("carro")) fotoUrl = "img/lavagemcaprichada.jpeg";
-                else if (n.includes("manutenção")) fotoUrl = "img/manutencao.jpeg";
-                else if (n.includes("poupança")) fotoUrl = "img/poupancacasal.jpeg";
-                else if (n.includes("reserva de emergência") || n.includes("emergência")) fotoUrl = "img/ReservaEmergencia.jpeg";
-                else if (n.includes("investimento")) fotoUrl = "img/investimentos.jpeg";               
-                else if (n.includes("fundo") && n.includes("sonho")) fotoUrl = "img/fundosonhos.jpeg";
-                else if (n.includes("amor em forma de dinheiro")) fotoUrl = "img/amorformadinheiro.jpeg";
-                else if (n.includes("ajuda pro casal não surtar")) fotoUrl = "img/ajudanaosurtar.jpeg";
-                else if (n.includes("dinheirinho abençoado")) fotoUrl = "img/dinheiroabencoado.jpeg";
-                else if (n.includes("fundo socorro")) fotoUrl = "img/fundosocorro.jpeg";
-                else if (n.includes("vale noite")) fotoUrl = "img/valenoitearthur.jpeg";
-                else if (n.includes("vale silêncio")) fotoUrl = "img/valesilencio.jpeg";
-                else if (n.includes("dormir até tarde")) fotoUrl = "img/valedormirtarde.jpeg";
-                else if (n.includes("maratona de série")) fotoUrl = "img/valemaratona.jpeg";
-                else if (n.includes("não fazer nada")) fotoUrl = "img/valenaofazernada.jpeg";
-                else if (n.includes("surpresa especial")) fotoUrl = "img/surpresaespecial.jpeg";
-                else if (n.includes("presente misterioso")) fotoUrl = "img/presentemisterioso.jpeg";
-                else if (n.includes("qualquer desejo")) fotoUrl = "img/valequalquerdoce.jpeg";
-                else if (n.includes("pix do bem")) fotoUrl = "img/pixdobem.jpeg";
-                else if (n.includes("ajuda livre")) fotoUrl = "img/ajudalivre.jpeg";
-                else if (n.includes("contribuição com amor")) fotoUrl = "img/contribuicaoamor.jpeg";
-                else if (n.includes("cama")) fotoUrl = "img/camasonhos.jpeg";
-                else if (n.includes("mimo aleatório")) fotoUrl = "img/mimoaleatorio.jpeg";
-                else if (n.includes("vale alegria")) fotoUrl = "img/valealegria.jpeg";
-                else if (n.includes("surpresa premium")) fotoUrl = "img/surpresapremium.jpeg";
-                else if (n.includes("dinheiro") || n.includes("dinheirinho") || n.includes("socorro") || n.includes("ajuda")) fotoUrl = "img/amorformadinheiro.jpeg";
+                // SOLUÇÃO DEFINITIVA: Consome a URL da foto direto da API/Planilha.
+                // Caso a propriedade não exista por algum erro, cai na imagem genérica de fallback.
+                let fotoUrl = p.FOTO || p.foto || "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&fit=crop";
 
                 const nomeSeguro = nomeOriginal ? String(nomeOriginal) : "Presente Especial";
                 const nomeParaBotao = nomeSeguro.replace(/'/g, "\\'");
@@ -212,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarPresentes();
     
     // --- Funções Auxiliares (Carrossel, Modal, Scroll) ---
-    // (Restante do seu código original permanece igual)
+    // (O restante do seu código original que manipula modais e botões deve continuar aqui caso tenha algo extra omitido, 
+    // mas com base no que foi enviado, o fluxo encerra na chamada do carregarPresentes)
 });
 
 // --- 7. CARROSSEL DE FUNDO HERO ---
@@ -230,9 +122,32 @@ if (bgItems.length > 0) {
         bgItems[currentBgIndex].classList.add('active', 'opacity-100');
     }, 5000);
 }
-// Substitua o bloco do lucide no seu noivas.js por este:
+
+// Inicialização segura dos ícones
 if (typeof lucide !== 'undefined') {
     setTimeout(() => {
         lucide.createIcons();
-    }, 500); // Aguarda 500ms para garantir que o rodapé foi lido
+    }, 500); // Aguarda 500ms para garantir que todos os nós do DOM foram lidos
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // ... seus outros códigos ...
+    const weddingDate = new Date("DEC 19, 2026 10:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});

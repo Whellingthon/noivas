@@ -71,7 +71,7 @@ const DADOS_PRESENTES = [
   { "id": "52", "nome": "Cafeteira (prioridade!)", "total": 350, "recebido": 0, "foto": "img/cafeteiraprioridade.jpeg" },
   { "id": "53", "nome": "Chaleira pro café", "total": 150, "recebido": 0, "foto": "img/chaleiracafe.jpeg" },
   { "id": "54", "nome": "Micro-ondas", "total": 700, "recebido": 0, "foto": "img/microondas.jpeg" },
-  { "id": "55", "nome": "Geladeira cheia (amém!)", "total": 800, "recebido": 0, "foto": "img/geladeira.jpeg" },
+  { "id": "55", "nome": "Geladeira cheia (amém!)", "total": 800, "recebido": 0, "foto": "img/comprames2.jpeg" },
 
   // 🍔 Comida porque ninguém vive de amor
   { "id": "56", "nome": "Compra do mês", "total": 500, "recebido": 0, "foto": "img/comprames.jpeg" },
