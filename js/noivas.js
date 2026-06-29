@@ -192,6 +192,12 @@ pixModal.addEventListener('click', (e) => {
 });
 
 
+// A variável global chavePix permanece inalterada
+// const chavePix = "d47413ee-b96f-43a9-8a55-ab37cf76e1e2";
+
+// Variável para armazenar o código Copia e Cola gerado
+let payloadPixAtual = ""; 
+
 confirmGiftBtn.addEventListener('click', () => {
     const nomeDoador = document.getElementById('donorName').value;
     const valorDoador = document.getElementById('donorValue').value;
@@ -203,13 +209,19 @@ confirmGiftBtn.addEventListener('click', () => {
 
     pixPaymentArea.classList.remove('hidden');
     
-    pixKeyText.textContent = chavePix;
+    // Gera a string BR Code estruturada. 
+    // Adapte o nome e a cidade se necessário.
+    payloadPixAtual = getPixPayload(chavePix, "Livia e Taylor", "Marilia", valorDoador);
 
-    qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(chavePix)}`;
+    // O ideal é exibir o código PIX Copia e Cola completo para o usuário poder copiar
+    pixKeyText.textContent = payloadPixAtual;
+
+    // Gera o QR Code passando o payload estruturado (BR Code)
+    qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(payloadPixAtual)}`;
 });
-
 copyPixBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(chavePix).then(() => {
+    // Copia o payload completo (Copia e Cola) que geramos no botão de confirmar
+    navigator.clipboard.writeText(payloadPixAtual).then(() => {
         const iconeOriginal = copyPixBtn.innerHTML;
         copyPixBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-600"></i>';
         if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -223,3 +235,45 @@ copyPixBtn.addEventListener('click', () => {
         alert("Erro ao copiar a chave PIX. Tente selecionar o texto e copiar manualmente.");
     });
 });
+// Função para montar a string do Pix Copia e Cola (Padrão EMVCo)
+function getPixPayload(chavePix, recebedor, cidade, valor) {
+    const pad = (str) => str.length.toString().padStart(2, '0');
+    const field = (id, value) => `${id}${pad(value)}${value}`;
+
+    const gui = field("00", "br.gov.bcb.pix");
+    const key = field("01", chavePix);
+    const accountInfo = field("26", gui + key);
+
+    // O recebedor e a cidade não podem ter acentos e possuem limite de caracteres
+    const merchantName = field("59", recebedor.substring(0, 25).normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+    const merchantCity = field("60", cidade.substring(0, 15).normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+    
+    let amountField = "";
+    if (valor && parseFloat(valor) > 0) {
+        amountField = field("54", parseFloat(valor).toFixed(2));
+    }
+
+    const payload = "000201" + 
+                    accountInfo + 
+                    "52040000" + 
+                    "5303986" + 
+                    amountField + 
+                    "5802BR" + 
+                    merchantName + 
+                    merchantCity + 
+                    field("62", field("05", "***"));
+
+    const payloadWithCrcTemplate = payload + "6304";
+    
+    // Cálculo do CRC16 exigido pelo Banco Central
+    let crc = 0xFFFF;
+    for (let i = 0; i < payloadWithCrcTemplate.length; i++) {
+        crc ^= payloadWithCrcTemplate.charCodeAt(i) << 8;
+        for (let j = 0; j < 8; j++) {
+            crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : (crc << 1);
+        }
+    }
+    const crcHex = (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+    
+    return payloadWithCrcTemplate + crcHex;
+}
