@@ -364,67 +364,76 @@
         </div>
     </div>
 </footer>
-
-    <div id="pixModal" class="fixed inset-0 bg-dark/70 backdrop-blur-sm flex items-center justify-center p-4 z-[100] hidden">
-        <div id="pixModalCard" class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center relative">
+<div id="pixModal" class="fixed inset-0 bg-dark/70 backdrop-blur-sm flex items-center justify-center p-4 z-[100] hidden">
+        <div id="pixModalCard" class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full text-center relative max-h-[90vh] overflow-y-auto">
+            
+            <!-- Botão de Fechar -->
             <button id="closePixModal" aria-label="Fechar modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
+            <!-- Cabeçalho -->
             <div class="flex justify-center mb-4">
                 <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center">
                     <i data-lucide="gift" class="w-8 h-8 text-accent"></i>
                 </div>
             </div>
-
             <h3 class="font-serif text-2xl text-primary mb-2">Agradecemos o carinho! 🎁</h3>
             <p id="modalPresenteNome" class="text-sm text-gray-500 mb-6">Você está presenteando: <br><span class="font-bold text-accent text-base italic">Carregando item...</span></p>
 
-            <div class="space-y-4 mb-6 text-left">
-                <div>
-                    <label for="donorName" class="text-[10px] uppercase text-gray-400 font-bold ml-1 block mb-1">Seu Nome / Apelido</label>
-                    <input type="text" id="donorName" placeholder="Ex: Tio João" class="pix-input">
+            <!-- OPÇÃO 1: CARTÃO DE CRÉDITO -->
+            <div class="bg-blue-50/50 border border-blue-100 p-5 rounded-2xl mb-4 text-left">
+                <div class="flex items-center gap-2 mb-2">
+                    <i data-lucide="credit-card" class="w-5 h-5 text-[#009EE3]"></i>
+                    <h4 class="font-bold text-gray-700">Pagamento via Cartão</h4>
                 </div>
-                <div>
-                    <label for="donorValue" class="text-[10px] uppercase text-gray-400 font-bold ml-1 block mb-1">Valor da Contribuição no PIX (R$)</label>
-                    <input type="number" id="donorValue" class="pix-input">
-                </div>
-                
-                <div class="flex flex-col gap-3 mt-4">
-                    <!-- Botão do PIX -->
-                    <button id="confirmGiftBtn" class="w-full bg-accent text-dark py-3 rounded-xl font-bold hover:bg-accent/90 transition shadow-md active:scale-95 flex items-center justify-center gap-2">
-                        <i data-lucide="qr-code" class="w-5 h-5"></i>
-                        Gerar QR Code PIX "Sem Taxas"
-                    </button>
-                    
-                    <!-- Divisor Visual -->
-                    <div class="relative flex items-center py-2">
-                        <div class="flex-grow border-t border-gray-200"></div>
-                        <span class="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase font-bold">ou</span>
-                        <div class="flex-grow border-t border-gray-200"></div>
-                    </div>
+                <a href="https://mpago.la/31pG6RJ" target="_blank" rel="noopener noreferrer" class="w-full bg-[#009EE3] text-white py-3 rounded-xl font-bold hover:bg-[#0089C4] transition shadow-md active:scale-95 flex items-center justify-center gap-2 text-sm mt-3">
+                    Acessar Link de Pagamento
+                </a>
+            </div>
 
-                    <!-- Botão do Cartão (Mercado Pago) -->
-                    <a href="https://mpago.la/31pG6RJ" target="_blank" rel="noopener noreferrer" class="w-full bg-[#009EE3] text-white py-3 rounded-xl font-bold hover:bg-[#0089C4] transition shadow-md active:scale-95 flex items-center justify-center gap-2">
-                        <i data-lucide="credit-card" class="w-5 h-5"></i>
-                        Pagar com Cartão "Com Taxas"
-                    </a>
+            <!-- OPÇÃO 2: PIX SEM TAXAS -->
+            <div class="bg-emerald-50/50 border border-emerald-100 p-5 rounded-2xl mb-4 text-left">
+                <div class="flex items-center gap-2 mb-2">
+                    <i data-lucide="qr-code" class="w-5 h-5 text-emerald-600"></i>
+                    <h4 class="font-bold text-gray-700">Prefere se livrar das taxas?</h4>
+                </div>
+                <p class="text-xs text-gray-600 mb-4 leading-relaxed">
+                    Escaneie o QR Code e pague no PIX <strong>sem taxas</strong>. <br>
+                    Pegue o valor do seu presente, insira abaixo e gere seu código:
+                </p>
+                
+                <div class="space-y-3">
+                    <div>
+                        <label for="donorName" class="text-[10px] uppercase text-gray-500 font-bold ml-1 block mb-1">Seu Nome / Apelido</label>
+                        <input type="text" id="donorName" placeholder="Ex: Tio João" class="w-full border border-emerald-200 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500 bg-white">
+                    </div>
+                    <div>
+                        <label for="donorValue" class="text-[10px] uppercase text-gray-500 font-bold ml-1 block mb-1">Valor do Presente (R$)</label>
+                        <input type="number" id="donorValue" class="w-full border border-emerald-200 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500 bg-white">
+                    </div>
+                    <button id="confirmGiftBtn" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700 transition shadow-md active:scale-95 flex items-center justify-center gap-2 text-sm">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        Gerar QR Code PIX
+                    </button>
                 </div>
             </div>
 
-            <div id="pixPaymentArea" class="border-t border-dashed border-gray-200 pt-6 mt-6 hidden">
-                <p class="text-xs text-gray-600 mb-4">Escaneie o QR Code ou copie a chave:</p>
+            <!-- ÁREA DO QR CODE GERADO (Invisível até clicar no botão verde) -->
+            <div id="pixPaymentArea" class="border-t border-dashed border-gray-200 pt-6 mt-2 hidden">
+                <p class="text-xs text-gray-600 mb-4">Escaneie o QR Code ou copie a chave Pix Copia e Cola:</p>
                 <div class="bg-cream-dark p-5 rounded-2xl mb-4 flex flex-col items-center">
                     <img id="qrCodeImg" alt="QR Code PIX" class="w-44 h-44 border-4 border-white shadow-md rounded-lg mb-4">
-                    <div class="flex items-center justify-between w-full bg-white p-3 rounded-lg border border-gray-100 gap-2">
+                    <div class="flex items-center justify-between w-full bg-white p-3 rounded-lg border border-gray-100 gap-2 overflow-hidden">
                         <p id="pixKey" class="text-xs font-mono text-gray-600 truncate"></p>
-                        <button id="copyPixBtn" aria-label="Copiar Chave PIX" class="p-2 bg-accent/20 rounded-md hover:bg-accent/30 transition flex-shrink-0">
-                            <i data-lucide="copy" class="w-4 h-4 text-accent"></i>
+                        <button id="copyPixBtn" aria-label="Copiar Chave PIX" class="p-2 bg-emerald-100 rounded-md hover:bg-emerald-200 transition flex-shrink-0">
+                            <i data-lucide="copy" class="w-4 h-4 text-emerald-700"></i>
                         </button>
                     </div>
                 </div>
                 <p class="text-[10px] text-gray-400 italic">*O valor será deduzido da vaquinha automaticamente após a confirmação.</p>
             </div>
+
         </div>
     </div>
 
