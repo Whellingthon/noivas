@@ -381,16 +381,18 @@
             <h3 class="font-serif text-2xl text-primary mb-2">Agradecemos o carinho! 🎁</h3>
             <p id="modalPresenteNome" class="text-sm text-gray-500 mb-6">Você está presenteando: <br><span class="font-bold text-accent text-base italic">Carregando item...</span></p>
 
-            <!-- OPÇÃO 1: CARTÃO DE CRÉDITO -->
-            <div class="bg-blue-50/50 border border-blue-100 p-5 rounded-2xl mb-4 text-left">
-                <div class="flex items-center gap-2 mb-2">
-                    <i data-lucide="credit-card" class="w-5 h-5 text-[#009EE3]"></i>
-                    <h4 class="font-bold text-gray-700">Pagamento via Cartão</h4>
-                </div>
-                <a href="https://mpago.la/31pG6RJ" target="_blank" rel="noopener noreferrer" class="w-full bg-[#009EE3] text-white py-3 rounded-xl font-bold hover:bg-[#0089C4] transition shadow-md active:scale-95 flex items-center justify-center gap-2 text-sm mt-3">
-                    Acessar Link de Pagamento
-                </a>
-            </div>
+        <!-- OPÇÃO 1: CARTÃO DE CRÉDITO -->
+<!-- Adicionei o id="cartaoContainer" aqui -->
+<div id="cartaoContainer" class="bg-blue-50/50 border border-blue-100 p-5 rounded-2xl mb-4 text-left">
+    <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="credit-card" class="w-5 h-5 text-[#009EE3]"></i>
+        <h4 class="font-bold text-gray-700">Pagamento via Cartão</h4>
+    </div>
+    <!-- Adicionei o id="linkCartao" aqui -->
+    <a id="linkCartao" href="https://mpago.la/31pG6RJ" target="_blank" rel="noopener noreferrer" class="w-full bg-[#009EE3] text-white py-3 rounded-xl font-bold hover:bg-[#0089C4] transition shadow-md active:scale-95 flex items-center justify-center gap-2 text-sm mt-3">
+        Acessar Link de Pagamento
+    </a>
+</div>
 
             <!-- OPÇÃO 2: PIX SEM TAXAS -->
             <div class="bg-emerald-50/50 border border-emerald-100 p-5 rounded-2xl mb-4 text-left">
