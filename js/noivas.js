@@ -111,25 +111,52 @@ window.prepararPresente = function(id, nome, valorFaltante) {
     document.getElementById('donorName').value = '';
     document.getElementById('donorValue').value = valorFaltante > 0 ? valorFaltante : '';
     
-    // Lógica Cartão
     const linkCartaoBtn = document.getElementById('linkCartao');
     const cartaoContainer = document.getElementById('cartaoContainer');
     const linksMercadoPago = {
-        150: "https://mpago.la/13QJiAn", 200: "https://mpago.la/2uFDGUm", 250: "https://mpago.la/2csAeau",
-        300: "https://mpago.la/2NELcbT", 350: "https://mpago.la/2jzEYcq", 400: "https://mpago.la/11FkJL5",
-        500: "https://mpago.la/1WrTVhj", 550: "https://mpago.la/2CDdRvR", 700: "https://mpago.la/1ph6fUF",
-        800: "https://mpago.la/1U48UrC", 1000: "https://mpago.la/1XGG7GJ", 1200: "https://mpago.la/2EnzNL1",
-        1500: "https://mpago.la/1MbAZp4", 2000: "https://mpago.la/26xJM1r", 2500: "https://mpago.la/2LM6BUD",
-        3000: "https://mpago.la/1Kh9ZHF", 3500: "https://mpago.la/2vJrSFb", 5000: "https://mpago.la/1HKF6FM"
+        150: "https://mpago.la/2csAeau",
+        200: "https://mpago.la/13QJiAn",
+        250: "https://mpago.la/1HKF6FM",
+        300: "https://mpago.la/2uFDGUm",
+        350: "https://mpago.la/2NELcbT",
+        400: "https://mpago.la/2jzEYcq",
+        500: "https://mpago.la/11FkJL5",
+        550: "https://mpago.la/1WrTVhj",
+        700: "https://mpago.la/2CDdRvR",
+        800: "https://mpago.la/1ph6fUF",
+        1000: "https://mpago.la/1U48UrC",
+        1200: "https://mpago.la/1XGG7GJ",
+        1500: "https://mpago.la/2EnzNL1",
+        2000: "https://mpago.la/1MbAZp4",
+        2500: "https://mpago.la/26xJM1r",
+        3000: "https://mpago.la/2LM6BUD",
+        3500: "https://mpago.la/1Kh9ZHF",
+        5000: "https://mpago.la/2vJrSFb"
     };
+    // CORREÇÃO: Arredonda o valor para evitar que 2000.0000001 vire 2500
+    const val = Math.round(parseFloat(valorFaltante) * 100) / 100;
+    
+    const valoresDisponiveis = Object.keys(linksMercadoPago).map(Number).sort((a, b) => a - b);
+    const valorIdeal = valoresDisponiveis.find(valorDaLista => valorDaLista >= val);
 
-    const val = parseFloat(valorFaltante);
-    if (linksMercadoPago[val]) {
-        linkCartaoBtn.href = linksMercadoPago[val];
+    // --- INÍCIO DOS TESTES (CONSOLE) ---
+    console.log("=== DEBUG DO PAGAMENTO VIA CARTÃO ===");
+    console.log("1. Valor bruto vindo do botão (valorFaltante):", valorFaltante);
+    console.log("2. Valor corrigido e arredondado (val):", val);
+    console.log("3. Valor ideal encontrado na constante:", valorIdeal);
+    
+    if (valorIdeal) {
+        linkCartaoBtn.href = linksMercadoPago[valorIdeal];
+        linkCartaoBtn.innerHTML = `Acessar Link de Pagamento (R$ ${valorIdeal})`;
         cartaoContainer.classList.remove('hidden');
+        
+        console.log("4. Link injetado no botão:", linksMercadoPago[valorIdeal]);
     } else {
         cartaoContainer.classList.add('hidden');
+        console.log("4. Nenhum valor da constante cobre o presente. Cartão oculto.");
     }
+    console.log("=======================================");
+    // --- FIM DOS TESTES ---
 
     pixPaymentArea.classList.add('hidden');
     pixModal.classList.remove('hidden');
