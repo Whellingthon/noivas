@@ -167,3 +167,33 @@ function getPixPayload(chavePix, recebedor, cidade, valor) {
     }
     return payload + (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
 }
+// Lógica do Player de Música
+const audio = document.getElementById('siteMusic');
+const musicToggle = document.getElementById('musicToggle');
+const musicPlayerInfo = document.getElementById('music-player-info');
+const musicIcon = document.getElementById('musicIcon');
+
+// Tenta tocar automaticamente ao carregar (o navegador pode bloquear)
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        musicPlayerInfo.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+        audio.play().then(() => {
+            // Sucesso na reprodução automática
+        }).catch(error => {
+            console.log("Reprodução automática bloqueada pelo navegador. O usuário precisa interagir.");
+        });
+    }, 1000);
+});
+
+// Botão de controle
+musicToggle.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        musicIcon.setAttribute('data-lucide', 'music');
+    } else {
+        audio.pause();
+        musicIcon.setAttribute('data-lucide', 'pause');
+    }
+    // Atualiza o ícone via Lucide
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+});
